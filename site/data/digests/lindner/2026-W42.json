@@ -7,7 +7,7 @@
     "start": "2026-10-12",
     "end": "2026-10-18"
   },
-  "generated_at": "2026-10-19T05:00:31+00:00",
+  "generated_at": "2026-10-19T06:33:42+00:00",
   "backfilled": false,
   "quiet_week": false,
   "dry_run": false,
@@ -16,125 +16,140 @@
     "score": "haiku",
     "digest": "sonnet"
   },
-  "headline": "Toyota adopts gigacasting in China while Volvo's megacasting launch stumbles",
+  "headline": "Toyota insources gigacasting while Volvo's megacasting ramp-up falters",
   "summary": [
     {
-      "text": "Toyota is building a Lexus plant in China with Tesla-style gigacasting, which adds to the risk that OEMs insource body structures such as Lindner's shock towers and longitudinal members.",
+      "text": "Toyota is developing its own gigacasting technology for an EV plant in China, a reminder that OEM insourcing could erode casting volumes if it spreads to Lindner's German customers.",
       "item_ids": [
-        "gn-ffdb314508"
+        "gn-8a97fabe6f"
       ]
     },
     {
-      "text": "Volvo's EX60 North American launch is running at 10 percent of target because of megacasting and cell-to-body integration problems, which suggests in-house gigacasting has limits and mid-size castings from suppliers like Lindner may stay in demand.",
+      "text": "Volvo's EX60 North American output is at 10 percent of target because of megacasting and cell-to-body problems, which supports Lindner's pitch of fast ramp-up with mid-size integrated castings.",
       "item_ids": [
         "gn-f731d919fd"
       ]
     },
     {
-      "text": "German automotive takes 32.8% of aluminium consumption as EV production rises 23%, led by Volkswagen, BMW and Mercedes-Benz, which widens the market for Lindner's structural castings.",
+      "text": "German automotive takes 32.8% of aluminium consumption as EV production rises 23%, which points to more demand for Lindner's structural castings.",
       "item_ids": [
         "gn-d362676968"
       ]
     },
     {
-      "text": "Speira is investing 40 million euros in aluminium circularity, which could improve recycled-metal supply for the low-CO2 alloys Lindner may need under tightening CO2 requirements.",
+      "text": "Aluminium scrap is becoming a strategic raw material, while Speira is investing 40 million euros in aluminium recycling; both affect Lindner's secondary alloy sourcing and costs.",
       "item_ids": [
+        "gn-ee1bf357f0",
         "gn-f889090961"
       ]
     },
     {
-      "text": "Inter Foundry & Inter Diecast 2026 offers a venue to meet die-casting peers, tooling suppliers and OEM sourcing contacts. A Hikvision interview describes AI-driven X-ray analysis that could automate porosity detection.",
+      "text": "Fraunhofer IIS and Hikvision Ruiying show AI-supported automated X-ray inspection maturing, which could complement Lindner's X-ray line for porosity detection.",
       "item_ids": [
-        "gn-c4823358ba",
+        "gn-005d8820e9",
         "gn-136e3f9d8b"
       ]
     }
   ],
   "actions": [
     {
-      "text": "Sales lead: use the Volvo EX60 difficulties in talks with OEM contacts to pitch mid-size integrated castings as a lower-risk alternative to full gigacasting.",
+      "text": "Sales lead: prepare a ramp-up pitch for Volvo Cars based on Lindner's speed in launching mid-size integrated castings, and raise it with the account team.",
       "item_ids": [
-        "gn-f731d919fd",
-        "gn-ffdb314508"
+        "gn-f731d919fd"
       ]
     },
     {
-      "text": "Purchasing/sustainability lead: contact Speira about recycled and low-carbon aluminium supply volumes and pricing for structural alloys.",
+      "text": "Management and sales: ask key German OEM and Tier-1 contacts about their gigacasting insourcing plans, and assess exposure if Toyota's approach spreads.",
       "item_ids": [
+        "gn-8a97fabe6f"
+      ]
+    },
+    {
+      "text": "Purchasing: ask aluminium suppliers about scrap-based and low-carbon alloy availability and pricing, given the scrap and recycling developments.",
+      "item_ids": [
+        "gn-ee1bf357f0",
         "gn-f889090961"
-      ]
-    },
-    {
-      "text": "Management: decide who attends Inter Diecast and book meetings with tooling suppliers and OEM sourcing contacts. Quality head: ask for an AI X-ray inspection briefing.",
-      "item_ids": [
-        "gn-c4823358ba",
-        "gn-136e3f9d8b"
       ]
     }
   ],
-  "top_signal": "gn-ffdb314508",
+  "top_signal": "gn-8a97fabe6f",
   "stats": {
-    "scanned": 173,
-    "after_dedupe": 161,
+    "scanned": 176,
+    "after_dedupe": 164,
     "scored": 100,
-    "kept": 6,
+    "kept": 7,
     "threats": 1,
-    "opportunities": 4,
+    "opportunities": 5,
     "watch": 1,
-    "sources": 116,
+    "sources": 118,
     "per_source": {
       "arxiv": 11,
-      "google_news": 162
+      "google_news": 165
     },
     "per_news_type": {
-      "research": 0,
+      "research": 1,
       "competitor": 0,
-      "industry": 4,
+      "industry": 5,
       "funding": 1,
       "regulation": 0,
-      "events": 1
+      "events": 0
     },
     "per_signal": {
       "threat": 1,
-      "opportunity": 4,
+      "opportunity": 5,
       "watch": 1
     },
     "per_watch_field": {
-      "gigacasting": 4,
-      "low-carbon-alloys": 1,
-      "defect-detection": 1,
+      "gigacasting": 3,
+      "low-carbon-alloys": 2,
+      "defect-detection": 2,
       "digital-twins": 0
     }
   },
   "items": [
     {
-      "id": "gn-ffdb314508",
+      "id": "gn-8a97fabe6f",
       "source": "google_news",
-      "title": "Toyota baut Lexus-Werk in China mit Gigacasting im Tesla-Stil",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdy1laDZDZFQwRHRRRUFkRTk4eEZlMHBKNkxCRkJ3bzhVZndvOUtPMWhURFZsSmhkZlZsWVlLVWJJdnJMYkFYNWQ0MDJ2SFRBLVphaG5zakRrX2g5ekhFTGo1OEt1VDZETHBpVEYydzY2UTVmdEJHVDdfYUhhcEpPSzY2dDl1NnBzeFdxcU1yMlVqSlhHc1BaaFF1NExsYkZwekVJTVpMRUE",
-      "date": "2026-10-18",
+      "title": "Toyota entwickelt eigene Gigacasting-Technologie für Elektroautowerk in China",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPZER4dUVLRHhsdkhxb3pEZThLN3MyLVpWWExVWlB3eUZ3SFVHbU5ZTlI2dzBreS1tWU11VWlBUGhuNzVZMk9tN1lmQTU5eXFXZHFOMW9KTzFiV3JBNFBPNmtFYnp1YzNDWWZBb2VRYWtrNXJlUnN4eVpNZDl1TjN3UTdFUlQ5Umozd1p1Qi1waXBsTHplN293dGF2QlNYUkV5QzFzN3g2V3ZYWlpuUTR3NjZDWUdLcExqZEsxOHByQTFrUnNaSlVZNVhtdHRIcFRYcVFOZ2IyNzkwY2kx",
+      "date": "2026-10-16",
       "snippet": "",
       "watch_field": "gigacasting",
       "news_type": "industry",
       "signal": "threat",
-      "relevance": 8,
-      "reason": "Toyota insourcing gigacasting for a China Lexus plant threatens Lindner's OEM body-structure volumes for shock towers and longitudinal members.",
-      "publisher": "IDNFinancials",
-      "story": "Toyota Lexus China gigacasting plant",
+      "relevance": 9,
+      "reason": "Toyota insourcing gigacasting for Lexus EVs threatens Lindner's OEM casting volumes if the trend spreads to its German customers.",
+      "publisher": "MarketScreener Deutschland",
+      "story": "Toyota Lexus China in-house gigacasting",
       "also_reported_by": [
+        "Finimize",
+        "Wallstreet Online",
+        "Quartz",
         "finway.com.ua",
         "marketscreener.com",
         "The News International",
         "The Japan Times",
         "tech-insider.org",
-        "MarketScreener Deutschland",
-        "Finimize",
-        "Wallstreet Online",
-        "Quartz",
         "Fuel Cells Works",
         "BigGo Finance",
         "FinanzNachrichten.de"
       ]
+    },
+    {
+      "id": "gn-005d8820e9",
+      "source": "google_news",
+      "title": "Fraunhofer IIS: Automatisierte Röntgenprüfung für E-Auto-Batterien",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZTJQblo1ZnU1UVk4alUxeEZVcFZsN0xkSzU2T2Z2WGYzQk9NNGU2TEpQNmhVZDMwRXhHZVVzNG5qaU5fem1MdUpJNEtFaHF2VElnYmY3VmU4d1BpeDI1ZmtESzlhRG1nYVlFNDMwTVVhc3BIY3VMekVJRW5lc2JIU1VsZjNEQldyRFhWdnItMlZMbEhUSlhGdDRXUXFJalFpQ2lIQzVZTQ",
+      "date": "2026-10-16",
+      "snippet": "",
+      "watch_field": "defect-detection",
+      "news_type": "research",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Automated X-ray inspection of EV battery parts could be adopted or partnered by Lindner to inspect its battery-housing frames at cycle time.",
+      "publisher": "Tuningblog",
+      "story": "Fraunhofer IIS automated X-ray battery inspection",
+      "also_reported_by": []
     },
     {
       "id": "gn-d362676968",
@@ -146,26 +161,10 @@
       "watch_field": "gigacasting",
       "news_type": "industry",
       "signal": "opportunity",
-      "relevance": 8,
-      "reason": "Rising German EV output and aluminium demand from VW, BMW and Mercedes expands the addressable market for Lindner's structural castings.",
-      "publisher": "AL Circle",
-      "story": "Germany auto aluminium demand surge",
-      "also_reported_by": []
-    },
-    {
-      "id": "gn-c4823358ba",
-      "source": "google_news",
-      "title": "Inter Foundry & Inter Diecast 2026: A Key Meeting Point for the Foundry Industry",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPN3BXOFdlX0g5ZEl4cERyOTJaYl9veWl1Z001UGdTd3dvbDVqcERzcGJVZ1drOHZBZmdBTUMzTTExdFRQb3NhUUtWOUsxd0JTZFdZNDZfZEtpdXhQQmpVTjZFa2hhbkljWDRGb1daMXdNVEN6UURGbnlmaWowMzRrbWhSTmtYSEtjNG5od1ZOa0tZV05FVkprWm95Rzd6Q1JULTRsVXBENXVfbmRBdHdIUw",
-      "date": "2026-10-17",
-      "snippet": "",
-      "watch_field": "gigacasting",
-      "news_type": "events",
-      "signal": "opportunity",
       "relevance": 7,
-      "reason": "Inter Diecast fair offers Lindner a venue to meet die-casting peers, tooling suppliers and new OEM sourcing contacts.",
-      "publisher": "foundry-planet.com",
-      "story": "Inter Foundry Inter Diecast 2026 fair",
+      "reason": "Rising EV-driven aluminium demand from German OEMs signals more volume for Lindner's EV structural castings and Tier-1 customers.",
+      "publisher": "AL Circle",
+      "story": "Germany automotive aluminium consumption surge",
       "also_reported_by": []
     },
     {
@@ -179,9 +178,25 @@
       "news_type": "funding",
       "signal": "opportunity",
       "relevance": 7,
-      "reason": "Speira's circular aluminium investment could expand recycled-metal supply for low-CO2 structural alloys Lindner may need under CO2 requirements.",
+      "reason": "Recycling investment could widen the supply of scrap-based aluminium, helping Lindner source low-carbon alloys for its structural castings.",
       "publisher": "foundry-planet.com",
-      "story": "Speira 40 million aluminium recycling investment",
+      "story": "Speira 40M euro circular aluminium investment",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-ee1bf357f0",
+      "source": "google_news",
+      "title": "Aluminiumschrott wird zum strategischen Rohstoff",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOdG0zODkzWVlFbTAtaGFIWUZpbUh4UkUyUmt4S2tRYzJycGJWVXFTME9wRmU1NllxZElEckd2d3ZHWlJzeXRlaWRMVVA2VnlybVhGaVNiM3JpaERTd1hicGIxd0J1WEljc1BKbHhhWExtdTNSUkpzTVFCMDZyeFRYUlhqYUpPN3djMWlZczY0dw",
+      "date": "2026-10-15",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "Aluminium scrap becoming a strategic raw material affects Lindner's secondary alloy costs and CBAM-driven sourcing for its structural castings.",
+      "publisher": "DW.com",
+      "story": "Aluminium scrap as strategic raw material",
       "also_reported_by": []
     },
     {
@@ -193,11 +208,11 @@
       "snippet": "",
       "watch_field": "gigacasting",
       "news_type": "industry",
-      "signal": "watch",
+      "signal": "opportunity",
       "relevance": 7,
-      "reason": "Volvo's struggling in-house megacasting launch shows gigacasting limits, which could keep mid-size structural castings with Tier-1 die casters like Lindner.",
+      "reason": "Volvo's megacasting ramp shortfall exposes the risk of insourced gigacasting, opening room for Lindner to pitch its fast ramp-up of mid-size integrated castings to Volvo.",
       "publisher": "Auto123",
-      "story": "Volvo EX60 megacasting launch output shortfall",
+      "story": "Volvo EX60 megacasting ramp shortfall",
       "also_reported_by": []
     },
     {
@@ -211,7 +226,7 @@
       "news_type": "industry",
       "signal": "opportunity",
       "relevance": 7,
-      "reason": "AI-driven X-ray analysis could automate porosity detection on Lindner's inspection lines, cutting inspection time at cycle rate.",
+      "reason": "AI-driven X-ray analysis could automate porosity detection on Lindner's castings, complementing its existing X-ray inspection line.",
       "publisher": "36Kr",
       "story": "Hikvision Ruiying AI X-ray interview",
       "also_reported_by": []

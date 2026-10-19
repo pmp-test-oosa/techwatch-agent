@@ -10,17 +10,17 @@
             "start": "2026-10-12",
             "end": "2026-10-18"
           },
-          "headline": "Toyota adopts gigacasting in China while Volvo's megacasting launch stumbles",
-          "kept": 6,
-          "scanned": 173,
+          "headline": "Toyota insources gigacasting while Volvo's megacasting ramp-up falters",
+          "kept": 7,
+          "scanned": 176,
           "signals": {
             "threat": 1,
-            "opportunity": 4,
+            "opportunity": 5,
             "watch": 1
           },
           "backfilled": false,
           "quiet_week": false,
-          "generated_at": "2026-10-19T05:00:31+00:00"
+          "generated_at": "2026-10-19T06:33:42+00:00"
         },
         {
           "week": "2026-W41",
@@ -65,5 +65,5 @@
       "fictional": true
     }
   ],
-  "updated_at": "2026-10-19T05:00:31+00:00"
+  "updated_at": "2026-10-19T06:33:42+00:00"
 }
