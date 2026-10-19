@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "profile": "lindner",
+  "week": "2026-W41",
+  "week_number": 41,
+  "window": {
+    "start": "2026-10-05",
+    "end": "2026-10-11"
+  },
+  "generated_at": "2026-10-19T04:57:22+00:00",
+  "backfilled": true,
+  "quiet_week": true,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "Volvo pushes mega-casting while CBAM faces WTO challenge",
+  "summary": [
+    {
+      "text": "Volvo is promoting mega-casting to reduce part count, which could pull shock-tower and cross-beam volume away from mid-size die casters like Lindner if more OEMs insource body structures.",
+      "item_ids": [
+        "gn-c663286e22"
+      ]
+    },
+    {
+      "text": "Russia has taken the EU's CBAM to the WTO, which could change aluminium import costs and carbon-pricing rules that shape demand for Lindner's castings.",
+      "item_ids": [
+        "gn-fecf91d786"
+      ]
+    },
+    {
+      "text": "Speira inaugurated a €40 million aluminium recycling furnace, adding European secondary capacity and giving Lindner more scrap-tolerant, lower-CO2 alloy supply options.",
+      "item_ids": [
+        "gn-0977f05129"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Sales/key-account leads: ask Volvo Cars contacts which parts stay outside mega-casting scope, and prepare a mid-size integrated casting or tooling know-how offer.",
+      "item_ids": [
+        "gn-c663286e22"
+      ]
+    },
+    {
+      "text": "Purchasing: contact Speira about secondary and low-CO2 aluminium availability and pricing for structural alloys.",
+      "item_ids": [
+        "gn-0977f05129"
+      ]
+    },
+    {
+      "text": "Management/purchasing: add the CBAM WTO challenge to the monitoring list and check how a rule change would affect aluminium import costs.",
+      "item_ids": [
+        "gn-fecf91d786"
+      ]
+    }
+  ],
+  "top_signal": "gn-c663286e22",
+  "stats": {
+    "scanned": 103,
+    "after_dedupe": 98,
+    "scored": 98,
+    "kept": 3,
+    "threats": 1,
+    "opportunities": 1,
+    "watch": 1,
+    "sources": 75,
+    "per_source": {
+      "arxiv": 5,
+      "google_news": 98
+    },
+    "per_news_type": {
+      "research": 0,
+      "competitor": 0,
+      "industry": 2,
+      "funding": 0,
+      "regulation": 1,
+      "events": 0
+    },
+    "per_signal": {
+      "threat": 1,
+      "opportunity": 1,
+      "watch": 1
+    },
+    "per_watch_field": {
+      "gigacasting": 1,
+      "low-carbon-alloys": 2,
+      "defect-detection": 0,
+      "digital-twins": 0
+    }
+  },
+  "items": [
+    {
+      "id": "gn-0977f05129",
+      "source": "google_news",
+      "title": "Speira inaugurates €40 million aluminium recycling furnace",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOUUxmVUlBWTg0RGJLb29vZG9XeEl6bjVnaUxaT0NiV293WFRTbnEyeUpUOFFZRHRmektucDBwSGFmRGllZnp5dWJDWjFxWXk2TENNM2dyU2JSZUxZTEp1eUt3WlNaMmVWLUw2M0E3R25pbTdPQzE4b05UaVBHR3dDR2pGSHpNRWVVX2pGa0ZndlA4dUxhMzhj",
+      "date": "2026-10-09",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Speira's new recycling furnace adds European secondary aluminium capacity, giving Lindner scrap-tolerant, lower-CO2 alloy options for cast structural parts.",
+      "publisher": "Aluminium International Today",
+      "story": "Speira opens €40 million recycling furnace",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-fecf91d786",
+      "source": "google_news",
+      "title": "Russia takes EU’s CBAM to WTO: 5 key questions for global climate, aluminium trade",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOazlIRHdTeEhmNk5Xa21BeE90akNyeTVPbktRNkdQTXpTeEE0alpvZlQ2bm9Cbk5iZHBPcG1EQ0R4OGgzMDhjVzhZTGNOSDJuTzJVTDh6bXlucXhqQlJoS25lNDFUd1RXOThLcHdtVjV4YzQxdS10MGFqTHJIS0JfZ3NsSnpSbEtKWUVwNG4yR1lDLW0zcFpEdzFKU2tVb2JFYTFUUFp1SWpVbVNMejJlRWEwU210SGs",
+      "date": "2026-10-07",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "regulation",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "Russia's WTO challenge to CBAM could alter aluminium import costs and carbon-pricing rules that shape demand for Lindner's castings.",
+      "publisher": "AL Circle",
+      "story": "Russia challenges EU CBAM at WTO",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-c663286e22",
+      "source": "google_news",
+      "title": "Mega casting: Driving innovation forward with fewer parts",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE55R0NuZWlHUzZaeEY2Mnd0SjhJcWVfd2RNaWkydGhUZkoxYl9HTzlvUURueGdGZThUbnJwZWFmZXY5cVBXaFQ2dlhhSC1NcXRmYXVBRTZZWl9YOElkM2ZGUWZQTTBWV3J0dktmMTFNUmJPaDQ",
+      "date": "2026-10-05",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Volvo's mega-casting push with fewer parts could shift shock-tower and cross-beam volume away from mid-size die casters like Lindner if OEMs insource body structures.",
+      "publisher": "Volvo",
+      "story": "Volvo mega casting fewer parts",
+      "also_reported_by": []
+    }
+  ]
+}

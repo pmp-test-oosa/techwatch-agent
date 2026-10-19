@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "profile": "lindner",
+  "week": "2026-W40",
+  "week_number": 40,
+  "window": {
+    "start": "2026-09-28",
+    "end": "2026-10-04"
+  },
+  "generated_at": "2026-10-19T04:54:15+00:00",
+  "backfilled": true,
+  "quiet_week": false,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "Volvo EX60 launches Bühler megacasting; EU carbon and scrap rules tighten",
+  "summary": [
+    {
+      "text": "Volvo is bringing Bühler megacasting to the road in the EX60, a concrete sign that OEMs are insourcing large structures that could pull volume from Lindner's shock towers and longitudinal members.",
+      "item_ids": [
+        "gn-763dfa5f26"
+      ]
+    },
+    {
+      "text": "European Aluminium welcomes the EU ETS changes and proposes a 1.7% LRF and a 2040 extension of indirect cost compensation, which will shape carbon and energy costs for aluminium and for Lindner's casting operations.",
+      "item_ids": [
+        "gn-81714bbc14"
+      ]
+    },
+    {
+      "text": "European aluminium scrap curbs could raise costs and tighten secondary alloy supply, which Lindner needs for low-carbon structural castings.",
+      "item_ids": [
+        "gn-33117f1635"
+      ]
+    },
+    {
+      "text": "Competitor TRIMET has opened a German aluminium recycling plant, which strengthens its CO2 position. It may also offer Lindner a source of low-carbon secondary alloy.",
+      "item_ids": [
+        "gn-36db6a6fd5"
+      ]
+    },
+    {
+      "text": "Rio Tinto and RevoCast are expanding low-carbon aluminium billet supply, a possible lower-CO2 source for meeting EU OEM carbon targets.",
+      "item_ids": [
+        "gn-054c8e021c"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Sales lead: assess which Volvo parts are exposed to the EX60 megacasting shift and prepare a mid-size integrated casting or ramp-up know-how pitch for Volvo and similar OEMs.",
+      "item_ids": [
+        "gn-763dfa5f26"
+      ]
+    },
+    {
+      "text": "Purchasing: request low-carbon and secondary alloy quotes from TRIMET, Rio Tinto and RevoCast, and check how scrap curbs would affect current supply contracts.",
+      "item_ids": [
+        "gn-36db6a6fd5",
+        "gn-054c8e021c",
+        "gn-33117f1635"
+      ]
+    },
+    {
+      "text": "Finance and energy lead: model the impact of the proposed ETS changes and 2040 indirect cost compensation extension on energy and aluminium costs, and brief the managing director.",
+      "item_ids": [
+        "gn-81714bbc14"
+      ]
+    }
+  ],
+  "top_signal": "gn-763dfa5f26",
+  "stats": {
+    "scanned": 131,
+    "after_dedupe": 118,
+    "scored": 100,
+    "kept": 5,
+    "threats": 1,
+    "opportunities": 2,
+    "watch": 2,
+    "sources": 81,
+    "per_source": {
+      "arxiv": 17,
+      "google_news": 114
+    },
+    "per_news_type": {
+      "research": 0,
+      "competitor": 1,
+      "industry": 3,
+      "funding": 0,
+      "regulation": 1,
+      "events": 0
+    },
+    "per_signal": {
+      "threat": 1,
+      "opportunity": 2,
+      "watch": 2
+    },
+    "per_watch_field": {
+      "gigacasting": 2,
+      "low-carbon-alloys": 3,
+      "defect-detection": 0,
+      "digital-twins": 0
+    }
+  },
+  "items": [
+    {
+      "id": "gn-763dfa5f26",
+      "source": "google_news",
+      "title": "Bühler-Megacasting kommt im neuen Volvo EX60 auf die Strasse",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTkhoMDdSQkJGS2NnY0FXcGlXZE05cE1XaVVUWllUZmdOY1hBRDhjcUQ4Z241enQtUmRPOE52RmtSbFNLSy1lLVFSMmFCRHQxSE1WSy1rWG8tWDlGNUM3bFdWV3o3ZUgwT2FScVpPSlpsVy1SekE5RWJmSFFPc0o3dVE2eFJzc08teFdlQWkwOEIwVjRXRkFV",
+      "date": "2026-09-30",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 9,
+      "reason": "Volvo's Bühler megacasting launch in the EX60 shows OEMs insourcing large structures, which could shift body-structure volumes away from Lindner's shock towers and longitudinal members.",
+      "publisher": "AUTO&Wirtschaft",
+      "story": "Volvo EX60 Bühler megacasting launch",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-36db6a6fd5",
+      "source": "google_news",
+      "title": "Trimet opens German aluminium recycling plant",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQYW04X3NnYjR5LUFyOEJRVEYzdFNWQklTazBuWnd5c19mTXRXMUxmRmIzY1FkZ3otMlljTWF4SkkxVG9oVzZVbW1uYzdBYmdyQkNoZ29aYkNFNXFjSEkwdFNvNXBJOUNCUjV5OGtZN0pXeWVDZW5hb0hzdlg4T1pkRERuOA",
+      "date": "2026-10-02",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "competitor",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "New German aluminium recycling capacity could secure low-carbon secondary alloy supply for Lindner's structural parts, while also strengthening named competitor TRIMET Automotive's CO2 position.",
+      "publisher": "Aluminium International Today",
+      "story": "Trimet opens German recycling plant",
+      "also_reported_by": [
+        "RECYCLING magazin"
+      ]
+    },
+    {
+      "id": "gn-81714bbc14",
+      "source": "google_news",
+      "title": "European Aluminium welcomes EU ETS changes, proposes 1.7% LRF and 2040 ICC extension",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNeTV5Rzd0VVdVM3pGX2d5Nzkzdks4eW5xQlRHbXhydzViSTBmUjFOZkwzQmQ1T2FnVWJpNG1zTWQxY1VHYWVha1JPaXhDU1dsNERld0lYWW1TbnNMd3JVT29XMzNUQmpzenY0akpFUHZLSlpLcGtCZ1BiU2YtV1VFWnRXdEZUa01KQkY1aFBpTU9oUmFzNVhMU1Z0UWc2VW5TUVd5UXk5MWlnbkc4anN2NE8tZ3pKV0trTWZv",
+      "date": "2026-09-28",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "regulation",
+      "signal": "watch",
+      "relevance": 8,
+      "reason": "Proposed EU ETS changes and a 2040 indirect cost compensation extension will shape carbon costs for aluminium and Lindner's energy-intensive casting operations.",
+      "publisher": "AL Circle",
+      "story": "European Aluminium ETS reform proposals",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-054c8e021c",
+      "source": "google_news",
+      "title": "Rio Tinto, RevoCast expand low-carbon aluminum billet supply",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPbExsRFotMlBrSnNHSWU1ZXJBRXRVSjJJQnZyTTI1b21UREtsVkI2SUs2ZW1qR1pvZmFYUHRFR0p5bVp1SFo2dFZSMnRvNVhucDBDSEgwOTRnUnhncWtBc3Y4aHVjbm5aZWxGSzZxaTg4RndLRXkySnp2b3VaZ1pLNkJySzd2dkxMcWE3U0FrekhILXdxbzZOWnltcw",
+      "date": "2026-10-02",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Rio Tinto and RevoCast expanding low-carbon billet supply could give Lindner a lower-CO2 aluminium source for EU OEM carbon targets.",
+      "publisher": "Yieh Corp.",
+      "story": "Rio Tinto RevoCast low-carbon billet",
+      "also_reported_by": [
+        "Recycling Today",
+        "Securities.io"
+      ]
+    },
+    {
+      "id": "gn-33117f1635",
+      "source": "google_news",
+      "title": "AL Circle Analysis: Europe’s aluminium scrap curbs, India’s risk and US’s supply opportunity",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxON0dkZm1OOTY0NTdxcjVlSlVvS0RxRVlCV3pON09YQ2t4bXJDd2JQbnREdVY5SDNTMVdxMkNrMy1HMGtnZVhFX1ZPWUlMV1pXajZDV1Nhc2tHX3p1Q2MybVNxdUJJV0tWWUU1eE1wQlc3a3ZhVEFudHFjcnhDcVpKbFY4eFRKNU5EOGRveXhYMjY3UEF1R3llSE9NQlg1dWlTeFdCb0lpX2psamExWEtiUUFMeU5POE90aWdWaVVhYUNBQQ",
+      "date": "2026-10-02",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "European aluminium scrap curbs could raise cost and tighten supply of secondary alloys Lindner needs for low-carbon structural castings.",
+      "publisher": "AL Circle",
+      "story": "Europe aluminium scrap curbs analysis",
+      "also_reported_by": []
+    }
+  ]
+}

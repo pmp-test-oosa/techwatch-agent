@@ -1,0 +1,69 @@
+{
+  "profiles": [
+    {
+      "id": "lindner",
+      "weeks": [
+        {
+          "week": "2026-W42",
+          "file": "digests/lindner/2026-W42.json",
+          "window": {
+            "start": "2026-10-12",
+            "end": "2026-10-18"
+          },
+          "headline": "Toyota adopts gigacasting in China while Volvo's megacasting launch stumbles",
+          "kept": 6,
+          "scanned": 173,
+          "signals": {
+            "threat": 1,
+            "opportunity": 4,
+            "watch": 1
+          },
+          "backfilled": false,
+          "quiet_week": false,
+          "generated_at": "2026-10-19T05:00:31+00:00"
+        },
+        {
+          "week": "2026-W41",
+          "file": "digests/lindner/2026-W41.json",
+          "window": {
+            "start": "2026-10-05",
+            "end": "2026-10-11"
+          },
+          "headline": "Volvo pushes mega-casting while CBAM faces WTO challenge",
+          "kept": 3,
+          "scanned": 103,
+          "signals": {
+            "threat": 1,
+            "opportunity": 1,
+            "watch": 1
+          },
+          "backfilled": true,
+          "quiet_week": true,
+          "generated_at": "2026-10-19T04:57:22+00:00"
+        },
+        {
+          "week": "2026-W40",
+          "file": "digests/lindner/2026-W40.json",
+          "window": {
+            "start": "2026-09-28",
+            "end": "2026-10-04"
+          },
+          "headline": "Volvo EX60 launches Bühler megacasting; EU carbon and scrap rules tighten",
+          "kept": 5,
+          "scanned": 131,
+          "signals": {
+            "threat": 1,
+            "opportunity": 2,
+            "watch": 2
+          },
+          "backfilled": true,
+          "quiet_week": false,
+          "generated_at": "2026-10-19T04:54:15+00:00"
+        }
+      ],
+      "name": "Lindner Präzisionsguss GmbH",
+      "fictional": true
+    }
+  ],
+  "updated_at": "2026-10-19T05:00:31+00:00"
+}

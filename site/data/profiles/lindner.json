@@ -1,0 +1,164 @@
+{
+  "id": "lindner",
+  "name": "Lindner Präzisionsguss GmbH",
+  "fictional": true,
+  "employees": 320,
+  "location": "Baden-Württemberg, Germany (fictional)",
+  "industry": "Aluminium high-pressure die casting for e-mobility structural parts",
+  "description": "Lindner Präzisionsguss GmbH is a family-owned die caster with 320 employees that produces thin-walled aluminium structural parts for electric vehicles: shock towers, battery-housing frames, longitudinal members and cross-car beams for German and European OEMs and Tier-1 suppliers. It runs eight cold-chamber high-pressure die casting cells between 2,500 and 4,400 tonnes, in-house heat treatment, CNC finishing and X-ray inspection. Its competitive edge is tight dimensional tolerance and fast ramp-up of new parts; its main risks are OEMs moving to in-house gigacasting, rising CO2 requirements on aluminium, and energy costs.\n",
+  "competitors": [
+    "Nemak",
+    "GF Casting Solutions",
+    "Martinrea Honsel",
+    "Handtmann",
+    "KSM Castings Group",
+    "TRIMET Automotive",
+    "Ryobi Die Casting",
+    "Linamar"
+  ],
+  "ecosystem": {
+    "oems": [
+      "Tesla",
+      "Volkswagen",
+      "BMW",
+      "Mercedes-Benz",
+      "Volvo Cars",
+      "Toyota",
+      "BYD",
+      "Xiaomi"
+    ],
+    "machine_builders": [
+      "Bühler",
+      "IDRA",
+      "LK Group",
+      "Haitian",
+      "Yizumi"
+    ],
+    "software_and_inspection": [
+      "MAGMA",
+      "ESI Group",
+      "Flow Science",
+      "ZEISS",
+      "Waygate Technologies",
+      "Comet Yxlon"
+    ]
+  },
+  "watch_fields": [
+    {
+      "id": "gigacasting",
+      "name": "Gigacasting / mega-casting",
+      "short": "Gigacasting",
+      "name_de": "Gigacasting / Megaguss",
+      "description": "Very large single-piece structural castings made on 6,000 to 16,000 tonne presses. Threat if OEMs insource body structures; opportunity if Lindner can supply mid-size integrated castings or tooling know-how.\n",
+      "keywords_en": [
+        "gigacasting",
+        "giga casting",
+        "megacasting",
+        "mega casting",
+        "giga press",
+        "large structural casting",
+        "single-piece underbody",
+        "high pressure die casting",
+        "HPDC",
+        "structural casting",
+        "aluminium die casting"
+      ],
+      "keywords_de": [
+        "Gigacasting",
+        "Giga-Casting",
+        "Megacasting",
+        "Gigapresse",
+        "Großgussteil",
+        "Strukturguss",
+        "Druckguss",
+        "Aluminium-Druckguss"
+      ]
+    },
+    {
+      "id": "low-carbon-alloys",
+      "name": "Recycled & low-carbon aluminium alloys",
+      "short": "Low-carbon alloys",
+      "name_de": "Recycling- und CO2-arme Aluminiumlegierungen",
+      "description": "Secondary and low-CO2 aluminium, scrap-tolerant and non-heat-treatable alloys for structural castings, plus the price and carbon rules (CBAM, PCF) that shape demand.\n",
+      "keywords_en": [
+        "recycled aluminium",
+        "recycled aluminum",
+        "low-carbon aluminium",
+        "low-carbon aluminum",
+        "green aluminium",
+        "secondary aluminium",
+        "post-consumer scrap",
+        "aluminium scrap",
+        "non-heat-treatable alloy",
+        "CBAM",
+        "product carbon footprint"
+      ],
+      "keywords_de": [
+        "Recyclingaluminium",
+        "Sekundäraluminium",
+        "CO2-armes Aluminium",
+        "grünes Aluminium",
+        "Aluminiumschrott",
+        "Legierungsentwicklung",
+        "CO2-Grenzausgleich"
+      ]
+    },
+    {
+      "id": "defect-detection",
+      "name": "AI-based casting defect detection",
+      "short": "Defect detection",
+      "name_de": "KI-gestützte Gussfehlererkennung",
+      "description": "Machine learning on X-ray, CT and camera images to find porosity, cracks and cold shuts automatically, inline and at cycle time.\n",
+      "keywords_en": [
+        "casting defect",
+        "defect detection",
+        "X-ray inspection",
+        "computed tomography",
+        "porosity",
+        "machine vision",
+        "deep learning inspection",
+        "automated optical inspection",
+        "anomaly detection",
+        "non-destructive testing"
+      ],
+      "keywords_de": [
+        "Gussfehler",
+        "Gussfehlererkennung",
+        "Röntgenprüfung",
+        "Computertomographie",
+        "Porosität",
+        "Bildverarbeitung",
+        "KI-Qualitätsprüfung",
+        "zerstörungsfreie Prüfung"
+      ]
+    },
+    {
+      "id": "digital-twins",
+      "name": "Digital twins & simulation for die casting",
+      "short": "Digital twins",
+      "name_de": "Digitaler Zwilling & Gießsimulation",
+      "description": "Casting process simulation, solidification and die-thermal models, and plant-level digital twins that cut tool trials and scrap during ramp-up.\n",
+      "keywords_en": [
+        "digital twin",
+        "casting simulation",
+        "solidification",
+        "MAGMASOFT",
+        "ProCAST",
+        "FLOW-3D CAST",
+        "process simulation",
+        "die thermal",
+        "virtual commissioning",
+        "foundry"
+      ],
+      "keywords_de": [
+        "Digitaler Zwilling",
+        "Gießsimulation",
+        "Erstarrungssimulation",
+        "Prozesssimulation",
+        "Formfüllung",
+        "Gießerei",
+        "virtuelle Inbetriebnahme"
+      ]
+    }
+  ]
+}
