@@ -1,0 +1,80 @@
+name: TechWatch weekly digest
+
+# Weekly cron + manual run. There is deliberately NO pull_request trigger:
+# the Claude token must never be exposed to workflows started from forks.
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Monday 06:00 UTC, covers the previous ISO week (Mon-Sun)
+  workflow_dispatch:
+    inputs:
+      backfill_weeks:
+        description: "Also generate the N previous weeks (0 = only the last 7 days, max 8)"
+        required: false
+        default: "0"
+        type: string
+
+permissions:
+  contents: write   # commit and push /site/data
+
+concurrency:
+  group: techwatch-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      LLM_PROVIDER: claude_subscription
+      DISABLE_AUTOUPDATER: "1"
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest
+
+      - name: Offline tests (mock LLM, fixtures, no secrets)
+        run: python -m pytest -q
+
+      - name: Install Claude Code (official native installer)
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Check Claude Code and secret
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          claude --version
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "::error::Repository secret CLAUDE_CODE_OAUTH_TOKEN is missing (create it with 'claude setup-token')."
+            exit 1
+          fi
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run pipeline, commit and push
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          BACKFILL_WEEKS: ${{ github.event.inputs.backfill_weeks || '0' }}
+        run: |
+          if ! [[ "$BACKFILL_WEEKS" =~ ^[0-9]+$ ]] || [ "$BACKFILL_WEEKS" -gt 8 ]; then
+            echo "::error::backfill_weeks must be a number from 0 to 8"
+            exit 1
+          fi
+          if [ "$BACKFILL_WEEKS" -gt 0 ]; then
+            python -m techwatch backfill --profile all --weeks "$BACKFILL_WEEKS" --push
+          else
+            python -m techwatch run --profile all --push
+          fi
