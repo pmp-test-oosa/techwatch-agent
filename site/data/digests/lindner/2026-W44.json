@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "profile": "lindner",
+  "week": "2026-W44",
+  "week_number": 44,
+  "window": {
+    "start": "2026-10-20",
+    "end": "2026-10-26"
+  },
+  "generated_at": "2026-10-27T01:43:55+00:00",
+  "backfilled": false,
+  "quiet_week": false,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "Toyota commits to gigacasting; European aluminium scrap supply tightens",
+  "summary": [
+    {
+      "text": "Toyota plans gigacasting for Lexus and possibly bZ4X EVs in China, showing another OEM moving body structures toward single-piece castings, which could reduce demand for multi-part structural castings.",
+      "item_ids": [
+        "gn-36571925cd",
+        "gn-ad2dd45410",
+        "gn-7923ba4e32"
+      ]
+    },
+    {
+      "text": "European scrap exports are deepening the regional aluminium shortage, which could raise input costs for the recycled-content alloys Lindner relies on.",
+      "item_ids": [
+        "gn-d593cd848f"
+      ]
+    },
+    {
+      "text": "Germany remains an anchor of Europe's recycled aluminium production, and treating scrap as a standard raw material could help secure low-CO2 feedstock.",
+      "item_ids": [
+        "gn-7f6d967592",
+        "gn-9be2029b57"
+      ]
+    },
+    {
+      "text": "Competitor Nemak reported revenue and EBITDA growth of over 21% while impairments left results near break-even, so it is expanding but under some pressure.",
+      "item_ids": [
+        "gn-08e0557cc5",
+        "gn-94c35ae9d6"
+      ]
+    },
+    {
+      "text": "An arXiv review of autonomous AI inspection (NDE 4.0) is academic, but it may inform the X-ray defect-detection roadmap.",
+      "item_ids": [
+        "ax-9be7f0575d"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Sales lead: ask key OEM and Tier-1 contacts about gigacasting plans and pitch mid-size integrated castings or tooling know-how as a complement.",
+      "item_ids": [
+        "gn-36571925cd",
+        "gn-ad2dd45410"
+      ]
+    },
+    {
+      "text": "Purchasing: check scrap and recycled-aluminium supply contracts for 2027 and quantify exposure to the European scrap shortage.",
+      "item_ids": [
+        "gn-d593cd848f",
+        "gn-7f6d967592"
+      ]
+    },
+    {
+      "text": "Quality manager: review the NDE 4.0 paper for ideas applicable to X-ray inspection and report back.",
+      "item_ids": [
+        "ax-9be7f0575d"
+      ]
+    }
+  ],
+  "top_signal": "gn-ad2dd45410",
+  "stats": {
+    "scanned": 114,
+    "after_dedupe": 105,
+    "scored": 100,
+    "kept": 9,
+    "threats": 5,
+    "opportunities": 1,
+    "watch": 3,
+    "sources": 69,
+    "per_source": {
+      "arxiv": 12,
+      "google_news": 102
+    },
+    "per_news_type": {
+      "research": 1,
+      "competitor": 2,
+      "industry": 6,
+      "funding": 0,
+      "regulation": 0,
+      "events": 0
+    },
+    "per_signal": {
+      "threat": 5,
+      "opportunity": 1,
+      "watch": 3
+    },
+    "per_watch_field": {
+      "gigacasting": 6,
+      "low-carbon-alloys": 2,
+      "defect-detection": 0,
+      "digital-twins": 1
+    }
+  },
+  "items": [
+    {
+      "id": "gn-36571925cd",
+      "source": "google_news",
+      "title": "Toyota setzt auf Gigacasting nach Teslas Vorbild",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPUzVjOTZ5czBxODBSUUs4SS0xNi1mQkdOYmJOX3dvNzQ1dU5PUTJtSVFtWTB2UFlnR1BVekl6NzZ5YkNpVmZ0dzV6WTRKWkI5STdUemhNR0l6MlBrbU5CSUZyRERoSE5GVElaWjlNTkI4NVp1Wk00ZjdGeVkya1k0MkJWcWJLRmlSSnpkZjVNZHl3MU16LW9rWjBUTGNtUQ",
+      "date": "2026-10-22",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 8,
+      "reason": "Toyota adopting gigacasting threatens Lindner's aluminium structural-part orders if OEMs insource body structures.",
+      "publisher": "vybe",
+      "story": "Toyota adopts gigacasting like Tesla",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-ad2dd45410",
+      "source": "google_news",
+      "title": "'Major opportunity': Toyota to build cheaper and stronger EVs in China using gigacasting, including 2027 Lexus LF-ZL and potentially future Toyota bZ4X",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNMzM0VERqU05pT0xzZWxfdlVfa2JUX0FhYzhpZmxxNWI2RnB2Tk5FTkxGNVJDZkg4cXh0THEtZFNoZkl5N0NRb2tkZWNSZVFzRUUtNDBseW04RE1jd3NvUmkwSnBKemhPb3ZjRTUtVzFlaGVVNk9hbnVXZ2YzTmNCaGVkQTZRXzFfeENqLVFDMVVsUWZ1M1lUbkxnSFpfT2h1ZGdIRVB3N2t1dTNJTEREdmx4a01YUXRsX1ZtS0NUM1U",
+      "date": "2026-10-21",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 8,
+      "reason": "Toyota plans gigacasting for Lexus and bZ4X EVs in China, insourcing structural parts that could shift volumes away from suppliers like Lindner.",
+      "publisher": "CarsGuide",
+      "story": "Toyota gigacasting EVs in China",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-d593cd848f",
+      "source": "google_news",
+      "title": "Scrap exports deepen Europe's aluminum shortage",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNeVc0OFJCOGpQd0VCX09ncHJXRG5Vc1RvWE1HNnpWbVc3bU1PeExkY3FyOUVQMUQ0emQ1YzM0dzZsdjlkQ09CSFlCNjNOU29VUGdSOFktTVZrWVdLdUFFVzQxR3pyd2VzcXJ3MFM2Y25JVmhoemVaZno5Z3B6VWNWNG5zNEVIQXhsUWRn",
+      "date": "2026-10-21",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 8,
+      "reason": "European scrap exports tighten aluminium feedstock supply, raising input costs for recycled-content alloys used in Lindner's structural castings.",
+      "publisher": "DW.com",
+      "story": "Scrap exports deepen European aluminum shortage",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-7923ba4e32",
+      "source": "google_news",
+      "title": "Toyota plant Gigacasting für Lexus: Was das für die Toyota Motor-Aktie bedeutet",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOS1VTdTZ6S0dzNU9LaUFSNllvdG1vY3MyYmNObE9sdzdDNUd3MVdPaXRwbC1jUHJUV3c0U2lLNkxUZjlSd0NITVYzS3pHbGdGWVlvdG5hY18yc1pNWUlCOFpHT3JVRkQ3R0JCYndpcy1IaXc2eG1uNEZGZnB3R211TWlMZnJ1MGw2d0Z4NmJWLVloQzdfQTZvbHY5NEdJeDd0MkZiVDA1U25mamN4Z3QzYVFSc2NmSDd5R0JYQ3lhVVR5eHgxOTZQcHpxSDFGTEU5MDBGUmZCX0p1bVk",
+      "date": "2026-10-26",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Toyota's Lexus gigacasting plant lets an OEM insource body structures, threatening Lindner's EV structural-part volumes for German and European customers.",
+      "publisher": "ad-hoc-news.de",
+      "story": "Toyota Lexus gigacasting plant",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-7f6d967592",
+      "source": "google_news",
+      "title": "Europe’s recycled aluminium production: Germany, Italy and the UK anchor a competitive market",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQam9UTFE1ZV92MGdDV2M1TUpmZ0hPRDRObV9odWhEOEhvNEUtNUhIWFpFTnQ1dDk1OU85QjQxOW5SYVFSWlU2ZkNlYll4Uy1tWXVEZzdzelc4NzdfTUtoNmJDcFpxQU42MG5yT2MwSklDZl9DbENmcTBrcXA3VkZIT2o5bjJNTWxwNlZPWXU3bHB1akRFQ1MyY0ZNeVZwWURHWW56a1YxSFRTZGNtd2F6OGt2ajEyU0RqOVJqUkhqUHU0akRUUWc",
+      "date": "2026-10-26",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "Strong German recycled aluminium supply supports Lindner's sourcing of low-CO2 alloys for structural castings amid rising CO2 requirements.",
+      "publisher": "AL Circle",
+      "story": "Europe recycled aluminium production market",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-9be2029b57",
+      "source": "google_news",
+      "title": "From diverse scrap to a standard raw material: Avoiding downcycling in aluminium recycling operations",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPb0FINVkxelZub2VJMUdib0ZEclVncFQwYUczUERtTmVDdjRUbzhldXhBbUw3SU1aSUZROGpnQlNiSzhIdVQ2SjBjYVZsV09Zal82Ql8wSmlBVG9PVWdQTlRLYkFMVUJLRVMtUVllMDBtYkFxX0xEYlhXRUFQalprS28tbVMtV3dlTHFzODJJeHFrb09welpoY1NxaDZFaFEwbnplRXlkWTZCZGRYdG94bDk3NF9mTThYcTIyREkwVnVJLUQwRi03LXpB",
+      "date": "2026-10-26",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Scrap-to-standard-raw-material practices could secure recycled aluminium feedstock for Lindner's die casting alloys and lower CO2 for its EV structural parts.",
+      "publisher": "AL Circle",
+      "story": "Aluminium recyclers avoid scrap downcycling",
+      "also_reported_by": []
+    },
+    {
+      "id": "ax-9be7f0575d",
+      "source": "arxiv",
+      "title": "The Path to NDE 4.0: A Review of Algorithms, Techniques, and Strategies for Autonomous Inspection",
+      "url": "https://arxiv.org/abs/2610.31704",
+      "date": "2026-10-21",
+      "snippet": "Non-Destructive Inspection (NDI) is a cornerstone of modern quality assurance, critical for ensuring the safety and reliability of infrastructure and manufactured components without causing damage. This paper presents a comprehensive review of the current NDI landscape, analyzing the field through four distinct lenses, namely, computational algorithms, physical techniques, industrial applications, and research objectives. We synthesize a broad range of academic literature to illustrate the rapid evolution from manual, analog interpretation to a digitized, data-centric paradigm known as NDE…",
+      "watch_field": "digital-twins",
+      "news_type": "research",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "Review of autonomous AI-driven inspection algorithms informs Lindner's X-ray inspection and defect detection roadmap, though it is academic rather than industrial.",
+      "publisher": "arXiv · Ashiqur Rahmana et al.",
+      "story": "NDE 4.0 autonomous inspection review",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-08e0557cc5",
+      "source": "google_news",
+      "title": "NEMAK/A: Revenue and EBITDA grew; integration and refinancing set up 2027 synergy and deleveraging progress",
+      "url": "https://news.google.com/rss/articles/CBMinAJBVV95cUxNOVJadGlhaG5ZdnRuVF8zNXJsYzc0MnptMWFGZWFZLWlHX2Z1U0dHYzRCc0NzYW1WMkFhUGF6VFd6U3QwWEt3ZE9kbjNfalpfcW5fdnNLRUZ5M213M0VMQlJjRENPMzNwN3dzM3ZKZ2prMlJNbWd3TlpRdjZVOGR2bENCRy1YU0g2cWJNcW1OTWwxT25IVDc5MGVYaThCaU8xdnkyOGJMVGE1Nkh5ckFqd2kzRDJkVEtPaEUzekJibk5obEpXTFlfUEJFZTRqZEZzekx6dkx6ekhfVEhUVkpaemlHTGJiZTZiOFdzMWdXcWxoT0R1X21WYWlfYVpHUDJrak1ZYVZCdzZHUHp5RnVtMG9jNVdETWtvZTBMYw",
+      "date": "2026-10-21",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "competitor",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Nemak, a named gigacasting competitor, reported growing revenue and EBITDA, signalling stronger rival capacity for aluminium structural parts.",
+      "publisher": "TradingView",
+      "story": "Nemak Q3 2026 results",
+      "also_reported_by": [
+        "Investing.com",
+        "Seeking Alpha"
+      ]
+    },
+    {
+      "id": "gn-94c35ae9d6",
+      "source": "google_news",
+      "title": "NEMAK/A: Revenue and EBITDA grew over 21% as integration advanced, while impairments drove break-even results",
+      "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNNjhKNDBBUXpWaVlabF9GQzNtckZwY0dzczZubkdTRVJ0bDRETHdfWExCRGlVS0VxcEVxQnUyNC1DWDZ3UlU5V0F5Vlk1QlpnXzY3YlV3bFpmTTlDY3RjY2hoZjdUZmR2QkE2SHJFN055dV9wdGpsdEtJdHFGT3FuM1RNOUR6WF9CaFdkRDJaTFVMeXdZc2hXaTV1XzQyQkxqb3MyQktrRDVOdzJoSzg5Tnd4OWpLT2RiVm41TGFjQW5FWVYxanoybWlYUEx6aXJQUG5ocnRnZU5CYnJKS05SRmp6WTFPYUZEdGFjNUl3ZkRwLWNsWE56TW05YXctaE94UHZHb19oLVFMZXk0bXBCV3E5cThueWVh",
+      "date": "2026-10-21",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "competitor",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "Nemak, a named competitor in EV aluminium structural castings, grew revenue but took impairments, signalling pressure on its gigacasting-linked integration.",
+      "publisher": "TradingView",
+      "story": "Nemak Q3 2026 revenue growth",
+      "also_reported_by": [
+        "Investing.com"
+      ]
+    }
+  ]
+}

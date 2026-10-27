@@ -4,6 +4,25 @@
       "id": "lindner",
       "weeks": [
         {
+          "week": "2026-W44",
+          "file": "digests/lindner/2026-W44.json",
+          "window": {
+            "start": "2026-10-20",
+            "end": "2026-10-26"
+          },
+          "headline": "Toyota commits to gigacasting; European aluminium scrap supply tightens",
+          "kept": 9,
+          "scanned": 114,
+          "signals": {
+            "threat": 5,
+            "opportunity": 1,
+            "watch": 3
+          },
+          "backfilled": false,
+          "quiet_week": false,
+          "generated_at": "2026-10-27T01:43:55+00:00"
+        },
+        {
           "week": "2026-W42",
           "file": "digests/lindner/2026-W42.json",
           "window": {
@@ -65,5 +84,5 @@
       "fictional": true
     }
   ],
-  "updated_at": "2026-10-19T06:33:42+00:00"
+  "updated_at": "2026-10-27T01:43:55+00:00"
 }
