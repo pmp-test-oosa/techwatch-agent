@@ -1,7 +1,8 @@
-"""Date windows. A weekly run covers the 7 full days that end yesterday (UTC).
+"""Date windows. A weekly run covers the last completed ISO week (Mon-Sun, UTC).
 
-Run on a Monday, that is exactly the previous ISO week (Mon-Sun). The window is
-labelled with the ISO week of its last day, e.g. 2026-W42.
+Run by the Monday cron, that is exactly the last 7 days. A manual run on any other
+day covers the same calendar week, so windows never overlap or leave gaps, and the
+label (e.g. 2026-W42) always matches the window.
 """
 from __future__ import annotations
 
@@ -39,8 +40,9 @@ def today_utc() -> date:
 
 def weekly_window(today: date | None = None) -> Window:
     today = today or today_utc()
-    end = today - timedelta(days=1)
-    return Window(start=end - timedelta(days=6), end=end)
+    this_monday = today - timedelta(days=today.weekday())
+    start = this_monday - timedelta(days=7)
+    return Window(start=start, end=start + timedelta(days=6))
 
 
 def backfill_windows(weeks: int, today: date | None = None) -> list[Window]:

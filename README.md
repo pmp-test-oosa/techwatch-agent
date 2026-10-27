@@ -103,8 +103,8 @@ the site starts with three digests. Only real items with real publication dates 
 are marked on the site as "Generated retroactively on <date> from items published in this week".
 A week with fewer than 5 kept items is published anyway as a "quiet week". It is never padded.
 
-Week definition: a run covers the 7 full days that end yesterday (UTC). Run on a Monday, that is
-exactly the previous ISO week (KW), which is how the weekly cron works.
+Week definition: a run covers the last completed ISO week (KW, Monday to Sunday, UTC). For the
+Monday cron that is exactly the last 7 days; a manual run later in the week covers the same KW.
 
 Useful flags: `--profile all`, `--today YYYY-MM-DD` (pretend date), `--max-llm-calls N`,
 `--commit` (commit each digest as `chore: digest <profile> <week>`), `--push`.

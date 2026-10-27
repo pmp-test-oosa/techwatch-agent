@@ -31,6 +31,16 @@ def test_windows_monday_is_previous_iso_week():
     assert labels == ["2026-W40", "2026-W41", "2026-W42"]
 
 
+def test_windows_other_weekdays_cover_the_last_completed_iso_week():
+    # A manual run on Tuesday 2026-10-27 must publish KW 43 (Mon 19 - Sun 25), not a Tue-Mon window.
+    for day in range(27, 32):  # Tue 27 .. Sat 31 Oct, and Sunday 1 Nov below
+        w = weekly_window(date(2026, 10, day))
+        assert (w.start, w.end, w.label) == (date(2026, 10, 19), date(2026, 10, 25), "2026-W43")
+    assert weekly_window(date(2026, 11, 1)).label == "2026-W43"
+    assert all(w.start.weekday() == 0 and w.end.weekday() == 6
+               for w in backfill_windows(4, date(2026, 10, 29)))
+
+
 def test_filter_rules():
     items = [item(i, ntype="industry", rel=9) for i in range(10)]           # 10 industry, only 6 allowed
     items += [item(100 + i, ntype="research", rel=8) for i in range(10)]

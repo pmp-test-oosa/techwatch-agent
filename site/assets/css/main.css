@@ -634,3 +634,4 @@ td .strong { font-family: var(--font-head); font-weight: 600; }
 .srcline { display: block; color: var(--muted); }
 .srcline b { color: var(--text); font-family: var(--font-head); font-weight: 600; }
 .more { white-space: nowrap; font-size: 0.75rem; color: var(--muted); border-bottom: 1px dotted var(--muted); cursor: help; }
+td .note { white-space: normal; max-width: 240px; font-size: 0.75rem; }

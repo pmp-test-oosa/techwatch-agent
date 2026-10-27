@@ -25,7 +25,7 @@
     return `<tr>
       <td><span class="strong">KW ${kw(r.week).n}</span> <span class="muted">${kw(r.week).year}</span><span class="sub">${fmtRange(r.window.start, r.window.end)}</span></td>
       <td>${fmtDateTime(r.generated_at)}<span class="sub">${esc(r.provider)} · ${models}</span>
-        <span class="flags">${r.backfilled ? '<span class="flag flag--yes">backfilled</span>' : '<span class="flag">weekly</span>'}${r.dry_run ? '<span class="flag">dry run</span>' : ""}</span></td>
+        <span class="flags">${r.backfilled ? '<span class="flag flag--yes">backfilled</span>' : '<span class="flag">weekly</span>'}${r.dry_run ? '<span class="flag">dry run</span>' : ""}${r.status && r.status !== "published" ? `<span class="flag" title="${esc(r.note || "")}">${esc(r.status)}</span>` : ""}</span>${r.note ? `<span class="sub note">${esc(r.note)}</span>` : ""}</td>
       <td>${sources.map((s) => `<span class="srcline">${esc(SOURCE_LABELS[s] || s)} <b>${(r.items_per_source || {})[s] ?? "–"}</b></span>`).join("")}</td>
       <td class="num">${r.collected}<span class="sub">${r.after_dedupe} unique</span></td>
       <td class="num">${r.scored}</td>
