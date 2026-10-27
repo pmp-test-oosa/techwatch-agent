@@ -73,6 +73,7 @@ def main(argv: list[str] | None = None) -> int:
         log.error("--dry-run must never write to site/data")
         return 2
     sources_mode = args.sources or ("fixtures" if args.dry_run else "live")
+    today = args.today or today_utc()
     opts = RunOptions(
         provider=args.provider,
         sources=FIXTURE_SOURCES if sources_mode == "fixtures" else LIVE_SOURCES,
@@ -80,8 +81,8 @@ def main(argv: list[str] | None = None) -> int:
         max_llm_calls=args.max_llm_calls,
         dry_run=args.dry_run,
         commit=args.commit or args.push,
+        today=today,
     )
-    today = args.today or today_utc()
     windows = (backfill_windows(args.weeks, today) if args.command == "backfill" else [weekly_window(today)])
     profiles = list_profiles() if args.profile == "all" else [args.profile]
 

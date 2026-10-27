@@ -157,3 +157,13 @@ def test_retry_feeds_validator_error_back_to_the_model():
     out = p.write_digest([item(1)], {})
     assert len(out["headline"].split()) == 8 and p.calls == 2
     assert p.seen[0] is None and "13 words" in p.seen[1]
+
+
+def test_dry_run_is_reproducible_for_any_reference_date(tmp_path):
+    # Fixture dates follow --today, not the machine clock (CI runs on other days than the author).
+    out = tmp_path / "data"
+    assert main(["backfill", "--profile", "lindner", "--provider", "mock", "--dry-run", "--weeks", "2",
+                 "--out", str(out), "--today", "2025-03-03"]) == 0
+    runs = json.loads((out / "run-log.json").read_text(encoding="utf-8"))["runs"]
+    assert [r["week"] for r in runs] == ["2025-W09", "2025-W08", "2025-W07"]
+    assert all(r["collected"] > 0 and r["kept"] > 0 for r in runs)

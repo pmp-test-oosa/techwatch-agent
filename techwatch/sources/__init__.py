@@ -1,6 +1,8 @@
 """Source plugins. To add a source, subclass Source and register it in SOURCES."""
 from __future__ import annotations
 
+from datetime import date
+
 from .arxiv import ArxivSource
 from .base import Source
 from .fixtures import FixtureSource
@@ -16,5 +18,5 @@ LIVE_SOURCES = [ArxivSource.name, GoogleNewsSource.name]
 FIXTURE_SOURCES = [FixtureSource.name]
 
 
-def build_sources(names: list[str]) -> list[Source]:
-    return [SOURCES[n]() for n in names]
+def build_sources(names: list[str], today: date | None = None) -> list[Source]:
+    return [SOURCES[n](today) if SOURCES[n].is_fixture else SOURCES[n]() for n in names]

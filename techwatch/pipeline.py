@@ -5,7 +5,7 @@ import logging
 import time
 from collections import Counter
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from . import collect as collect_step
@@ -34,6 +34,7 @@ class RunOptions:
     dry_run: bool = False
     commit: bool = False
     extra_errors: list[str] = field(default_factory=list)
+    today: date | None = None  # reference date of the run (--today); fixtures are dated relative to it
 
     @property
     def publish_to_site(self) -> bool:
@@ -64,7 +65,7 @@ def run_window(profile_id: str, window: Window, opts: RunOptions, backfilled: bo
     profile = load_profile(profile_id)                                         # 1 LOAD
     field_ids = [f["id"] for f in profile["watch_fields"]]
 
-    sources = build_sources(opts.sources)                                      # 2 COLLECT
+    sources = build_sources(opts.sources, opts.today)                                    # 2 COLLECT
     raw, per_source, errors = collect_step.collect(profile, window, sources)
     collected = {}
     for r in raw:

@@ -5,7 +5,7 @@ Dates are relative to the day of the run (days_ago), so every dry-run window has
 from __future__ import annotations
 
 import json
-from datetime import timedelta
+from datetime import date, timedelta
 
 from ..config import FIXTURES_DIR
 from ..windows import Window, today_utc
@@ -17,13 +17,14 @@ class FixtureSource(Source):
     label = "Fixtures (dry run)"
     is_fixture = True
 
-    def __init__(self) -> None:
+    def __init__(self, today: date | None = None) -> None:
         super().__init__()
+        self.today = today  # reference date of the run (--today), so dry runs are reproducible
         with (FIXTURES_DIR / "items.json").open(encoding="utf-8") as f:
             self._items = json.load(f)["items"]
 
     def collect(self, profile: dict, field: dict, window: Window) -> list[dict]:
-        today = today_utc()
+        today = self.today or today_utc()
         out = []
         for it in self._items:
             if it["watch_field"] != field["id"]:
