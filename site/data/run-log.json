@@ -4,6 +4,60 @@
       "profile": "lindner",
       "week": "2026-W44",
       "window": {
+        "start": "2026-10-26",
+        "end": "2026-11-01"
+      },
+      "generated_at": "2026-11-02T07:05:43+00:00",
+      "backfilled": false,
+      "dry_run": false,
+      "status": "published",
+      "provider": "claude_subscription",
+      "models": {
+        "score": "haiku",
+        "digest": "sonnet"
+      },
+      "models_used": [
+        "claude-haiku-5-5",
+        "claude-sonnet-5-5"
+      ],
+      "items_per_source": {
+        "arxiv": 6,
+        "google_news": 123
+      },
+      "collected": 129,
+      "dedupe": {
+        "input": 129,
+        "spam": 6,
+        "duplicate": 4,
+        "already_published": 0,
+        "empty": 0,
+        "output": 119
+      },
+      "after_dedupe": 119,
+      "scored": 100,
+      "kept": 6,
+      "per_news_type": {
+        "research": 0,
+        "competitor": 0,
+        "industry": 6,
+        "funding": 0,
+        "regulation": 0,
+        "events": 0
+      },
+      "per_signal": {
+        "threat": 4,
+        "opportunity": 0,
+        "watch": 2
+      },
+      "llm_calls": 8,
+      "duration_s": 180.1,
+      "errors": [],
+      "quiet_week": false
+    },
+    {
+      "profile": "lindner",
+      "week": "2026-W44",
+      "window": {
         "start": "2026-10-20",
         "end": "2026-10-26"
       },
