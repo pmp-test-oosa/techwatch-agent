@@ -4,6 +4,25 @@
       "id": "lindner",
       "weeks": [
         {
+          "week": "2026-W45",
+          "file": "digests/lindner/2026-W45.json",
+          "window": {
+            "start": "2026-11-02",
+            "end": "2026-11-08"
+          },
+          "headline": "Lexus adopts gigacasting for 2027 EV; European aluminium power costs diverge",
+          "kept": 2,
+          "scanned": 67,
+          "signals": {
+            "threat": 2,
+            "opportunity": 0,
+            "watch": 0
+          },
+          "backfilled": false,
+          "quiet_week": true,
+          "generated_at": "2026-11-09T07:12:19+00:00"
+        },
+        {
           "week": "2026-W44",
           "file": "digests/lindner/2026-W44.json",
           "window": {
@@ -84,5 +103,5 @@
       "fictional": true
     }
   ],
-  "updated_at": "2026-11-02T07:05:43+00:00"
+  "updated_at": "2026-11-09T07:12:19+00:00"
 }

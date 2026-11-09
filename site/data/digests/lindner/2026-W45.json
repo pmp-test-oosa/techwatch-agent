@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "profile": "lindner",
+  "week": "2026-W45",
+  "week_number": 45,
+  "window": {
+    "start": "2026-11-02",
+    "end": "2026-11-08"
+  },
+  "generated_at": "2026-11-09T07:12:19+00:00",
+  "backfilled": false,
+  "quiet_week": true,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "Lexus adopts gigacasting for 2027 EV; European aluminium power costs diverge",
+  "summary": [
+    {
+      "text": "Lexus reportedly plans Chinese-style gigacasting for its next electric SUV due in 2027, which could mean body structures like shock towers and longitudinal members are cast in-house rather than bought from suppliers such as Lindner.",
+      "item_ids": [
+        "gn-3db2c6ee27"
+      ]
+    },
+    {
+      "text": "AL Circle reports power costs of EUR 600 versus EUR 1,800 per tonne of aluminium across Europe, underlining that energy price is a major competitive risk for Lindner's European casting operations.",
+      "item_ids": [
+        "gn-6d8658de0c"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Sales lead: ask Toyota/Lexus-related contacts and Tier-1 customers whether the 2027 Lexus SUV structure scope leaves room for mid-size integrated castings Lindner could quote.",
+      "item_ids": [
+        "gn-3db2c6ee27"
+      ]
+    },
+    {
+      "text": "Purchasing/energy manager: review Lindner's power and aluminium supply contracts against the reported EUR 600–1,800 per tonne spread and report exposure to the managing director.",
+      "item_ids": [
+        "gn-6d8658de0c"
+      ]
+    }
+  ],
+  "top_signal": "gn-3db2c6ee27",
+  "stats": {
+    "scanned": 67,
+    "after_dedupe": 67,
+    "scored": 67,
+    "kept": 2,
+    "threats": 2,
+    "opportunities": 0,
+    "watch": 0,
+    "sources": 56,
+    "per_source": {
+      "arxiv": 7,
+      "google_news": 60
+    },
+    "per_news_type": {
+      "research": 0,
+      "competitor": 0,
+      "industry": 2,
+      "funding": 0,
+      "regulation": 0,
+      "events": 0
+    },
+    "per_signal": {
+      "threat": 2,
+      "opportunity": 0,
+      "watch": 0
+    },
+    "per_watch_field": {
+      "gigacasting": 1,
+      "low-carbon-alloys": 1,
+      "defect-detection": 0,
+      "digital-twins": 0
+    }
+  },
+  "items": [
+    {
+      "id": "gn-6d8658de0c",
+      "source": "google_news",
+      "title": "Power cost of EUR 600 vs EUR 1,800 per tonne: How electricity prices are reshaping Europe’s aluminium industry",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNblQtRlEzYWx3MnZlejNFQkMzNGxnYUc4Q1lHYkszb3piUnVnZ1FUQ3Z4WkRBQzc4eUZfSVpHV3U3WllmSTVOamdHZ3ZmSy1MSlVzclFyemFYOWUteERBTzZMcVRfTWVvaUM2WG1hNTEzWTdJNlhzcXVRenotQXN4cDMtZXZGQWxnQ2lybUVaci1oZDVKOGg5Q1pvaHlnU3B5OHY5UVp0ZVRxRVRQMVUzTEVsU2I1czdNQlUxZEtyNVdfY1Fqa3RUTmRmM1Bic2JoUlBEODZwUjdvQ3hpWmpsNk5neGpLRnlnZ1Nv",
+      "date": "2026-11-05",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Power cost gap of EUR 600 versus EUR 1,800 per tonne of aluminium underlines the energy-cost risk for Lindner's European die casting cells.",
+      "publisher": "AL Circle",
+      "story": "Europe aluminium power cost gap",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-3db2c6ee27",
+      "source": "google_news",
+      "title": "Lexus is taking a page from China for its next electric SUV launching in 2027",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPUHhtXzFwN3lrVWJVbTBQMTJ4UW0yUGRFNmxjRXNwS19lcmhnZWNrX1dfa2hDSTlhMEwzSy1Eb1FmNGxOTDFKaVRqSG9PUUo4MS1JdEZ0UEJqRHNjc3NHQ2gxOEp2eHptOU1LdEZFUGNsQW1nM19qMkhOQ3dYRkZtU3p3",
+      "date": "2026-11-02",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Lexus reportedly adopts Chinese gigacasting for its next electric SUV, which could insource body structures Lindner would otherwise supply, such as shock towers and longitudinal members.",
+      "publisher": "Electrek",
+      "story": "Lexus adopts Chinese gigacasting approach",
+      "also_reported_by": []
+    }
+  ]
+}
