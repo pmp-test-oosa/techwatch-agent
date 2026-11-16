@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "profile": "lindner",
+  "week": "2026-W46",
+  "week_number": 46,
+  "window": {
+    "start": "2026-11-09",
+    "end": "2026-11-15"
+  },
+  "generated_at": "2026-11-16T08:14:24+00:00",
+  "backfilled": false,
+  "quiet_week": true,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "VW halts mega-casting; Mercedes to use 75% recycled aluminium from 2027",
+  "summary": [
+    {
+      "text": "Volkswagen has halted mega-casting and dropped the in-house Wolfsburg foundry for SSP models, which may keep mid-size structural castings with external die casters like Lindner.",
+      "item_ids": [
+        "gn-68c7199c6b",
+        "gn-e613994587"
+      ]
+    },
+    {
+      "text": "Mercedes will use aluminium with 75% recycled content from 2027, which means near-term demand for scrap-tolerant secondary alloys in Lindner's structural parts.",
+      "item_ids": [
+        "gn-1af3cbf6e7"
+      ]
+    },
+    {
+      "text": "ZEISS INRADIA 3D brings industrial tomography to the production line, and it could let Lindner move porosity checks inline without losing cycle time.",
+      "item_ids": [
+        "gn-9a770dadff"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Sales lead: contact VW purchasing about SSP shock tower and frame sourcing, and check whether the gigacasting halt opens volume for Lindner.",
+      "item_ids": [
+        "gn-68c7199c6b",
+        "gn-e613994587"
+      ]
+    },
+    {
+      "text": "Technical lead: assess whether Lindner's current alloys and suppliers can deliver 75% recycled content, and prepare a position for Mercedes.",
+      "item_ids": [
+        "gn-1af3cbf6e7"
+      ]
+    },
+    {
+      "text": "Quality manager: request ZEISS INRADIA 3D specifications and a sample-part trial to test inline use against current X-ray inspection.",
+      "item_ids": [
+        "gn-9a770dadff"
+      ]
+    }
+  ],
+  "top_signal": "gn-68c7199c6b",
+  "stats": {
+    "scanned": 84,
+    "after_dedupe": 82,
+    "scored": 82,
+    "kept": 4,
+    "threats": 0,
+    "opportunities": 4,
+    "watch": 0,
+    "sources": 63,
+    "per_source": {
+      "arxiv": 8,
+      "google_news": 76
+    },
+    "per_news_type": {
+      "research": 0,
+      "competitor": 0,
+      "industry": 4,
+      "funding": 0,
+      "regulation": 0,
+      "events": 0
+    },
+    "per_signal": {
+      "threat": 0,
+      "opportunity": 4,
+      "watch": 0
+    },
+    "per_watch_field": {
+      "gigacasting": 2,
+      "low-carbon-alloys": 1,
+      "defect-detection": 1,
+      "digital-twins": 0
+    }
+  },
+  "items": [
+    {
+      "id": "gn-68c7199c6b",
+      "source": "google_news",
+      "title": "Volkswagen halts mega-casting as automakers embrace pragmatism",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMmdZOUF0eExDdG8wSjB4c19ueE42T3NIRnd2VENQSnNiemRqZnN6bldXQUZpN3ZYbzh6UmRSUGZpdll6Z2c4SE5Oak9hdTlEWHQ1eTJPWGZGbEdsMDJYTEdaWlpnN1hGRHU4TUJHZWNoN2ZtUjF1dGwxUlBDaWdjY3Rxb0p4QUtMQUVpazRBbTJfb2g2SU9Rd2Nqcndsd1g1RXJtSjR0b3hvdUZz",
+      "date": "2026-11-13",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "VW halting mega-casting signals OEMs retreating from in-house gigacasting, easing a key threat to Lindner's shock tower and frame volumes.",
+      "publisher": "digitimes",
+      "story": "VW scraps Gamechanger mega-casting plan",
+      "also_reported_by": [
+        "electrive.com",
+        "MLQ.ai",
+        "Bloomberg.com",
+        "Automotive News"
+      ]
+    },
+    {
+      "id": "gn-e613994587",
+      "source": "google_news",
+      "title": "VW stoppt Gigacasting: Wolfsburger Gießerei für SSP-Modelle gestrichen",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQdGtaYUpsU1RJdUF5b3Y1MzExZkVWcmJhTWNJZ3FDLV9UWHlEenFMb3BQUHNoU2pJa1dnNzFzLUNXQThzYnpCN1ZOa29iWkhEblJOX2N0S3dHVVhUeU5PYkFRb21odW1uZEFMNDdKcU9jMFJkQXh2MlZrcWMySmlMMXNxb05GRnVySDlvWVUxcC0",
+      "date": "2026-11-13",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "VW dropping in-house gigacasting for SSP models at Wolfsburg may keep mid-size structural castings with external die casters, benefiting Lindner's shock tower and frame business.",
+      "publisher": "InsideEVs.de",
+      "story": "Volkswagen cancels Wolfsburg gigacasting foundry",
+      "also_reported_by": [
+        "MOTORMOBILES",
+        "SmartDroid",
+        "WirtschaftsWoche"
+      ]
+    },
+    {
+      "id": "gn-1af3cbf6e7",
+      "source": "google_news",
+      "title": "Ab 2027: Mercedes nutzt Aluminium mit 75 Prozent Rezyklat",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQWWUybkgyeVJBb2N3VWdmTy1RRmJLNjFTX1BNVEp4dlRLM2U0YVFWSjRZY2JXMnd3N1FqaGlsSGFIVkhnMi0yMzQ2WkRKWk5RSERfcWlBZWs5cEdfU0dzUXVzeXpVTWFOTWZXcE1WR3YtOFhhOWlRUXd2MGcwLW1JYmozQQ",
+      "date": "2026-11-12",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "From 2027 Mercedes uses 75% recycled aluminium, creating near-term demand for scrap-tolerant secondary alloys in Lindner's structural castings.",
+      "publisher": "Elektroauto-News",
+      "story": "Hydro Mercedes-Benz low-carbon aluminium deal",
+      "also_reported_by": [
+        "TimesLIVE",
+        "www.marketscreener.com",
+        "Tuningblog",
+        "Yieh Corp.",
+        "AL Circle",
+        "TradingView",
+        "Reuters"
+      ]
+    },
+    {
+      "id": "gn-9a770dadff",
+      "source": "google_news",
+      "title": "ZEISS INRADIA 3D bringt die industrielle Tomografie an die Produktionslinie",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOb1FnRE9ZbFEzOFdKcG00UmNmNDJWd1EzdU5DVGF1TFlKR0ZBbnpYVXo0azhDakJONmdNRjVaYTg1S0dXdHVLSGVqUi1zZllMQ2Y0Vk1uODJrMWRqNlJXNzdWSldRS3dfZ1RDRmFNLWZPUURLOTIta09ma3J1VmpIZlFYTGMxeVpNM2RfOC0wWU5fRWkteWdGbUllb2txUEw4bGtmTkRGMUlucDUyTVFQVkZ3",
+      "date": "2026-11-13",
+      "snippet": "",
+      "watch_field": "defect-detection",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Inline industrial CT at production-line speed could let Lindner move X-ray porosity checks inline without losing cycle time on its die casting cells.",
+      "publisher": "Foro3D",
+      "story": "ZEISS INRADIA 3D inline tomography launch",
+      "also_reported_by": []
+    }
+  ]
+}

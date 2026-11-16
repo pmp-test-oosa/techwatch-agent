@@ -4,6 +4,25 @@
       "id": "lindner",
       "weeks": [
         {
+          "week": "2026-W46",
+          "file": "digests/lindner/2026-W46.json",
+          "window": {
+            "start": "2026-11-09",
+            "end": "2026-11-15"
+          },
+          "headline": "VW halts mega-casting; Mercedes to use 75% recycled aluminium from 2027",
+          "kept": 4,
+          "scanned": 84,
+          "signals": {
+            "threat": 0,
+            "opportunity": 4,
+            "watch": 0
+          },
+          "backfilled": false,
+          "quiet_week": true,
+          "generated_at": "2026-11-16T08:14:24+00:00"
+        },
+        {
           "week": "2026-W45",
           "file": "digests/lindner/2026-W45.json",
           "window": {
@@ -103,5 +122,5 @@
       "fictional": true
     }
   ],
-  "updated_at": "2026-11-09T07:12:19+00:00"
+  "updated_at": "2026-11-16T08:14:24+00:00"
 }
