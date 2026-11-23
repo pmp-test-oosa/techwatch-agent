@@ -4,6 +4,25 @@
       "id": "lindner",
       "weeks": [
         {
+          "week": "2026-W47",
+          "file": "digests/lindner/2026-W47.json",
+          "window": {
+            "start": "2026-11-16",
+            "end": "2026-11-22"
+          },
+          "headline": "OEM gigacasting paths diverge; Xiaomi SU7 earns EPD certification",
+          "kept": 4,
+          "scanned": 99,
+          "signals": {
+            "threat": 2,
+            "opportunity": 1,
+            "watch": 1
+          },
+          "backfilled": false,
+          "quiet_week": true,
+          "generated_at": "2026-11-23T07:18:54+00:00"
+        },
+        {
           "week": "2026-W46",
           "file": "digests/lindner/2026-W46.json",
           "window": {
@@ -122,5 +141,5 @@
       "fictional": true
     }
   ],
-  "updated_at": "2026-11-16T08:14:24+00:00"
+  "updated_at": "2026-11-23T07:18:54+00:00"
 }

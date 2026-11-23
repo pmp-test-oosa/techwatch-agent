@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "profile": "lindner",
+  "week": "2026-W47",
+  "week_number": 47,
+  "window": {
+    "start": "2026-11-16",
+    "end": "2026-11-22"
+  },
+  "generated_at": "2026-11-23T07:18:54+00:00",
+  "backfilled": false,
+  "quiet_week": true,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "OEM gigacasting paths diverge; Xiaomi SU7 earns EPD certification",
+  "summary": [
+    {
+      "text": "VW halted its German gigacasting plant project while Toyota continues mass production in Shanghai, so OEM insourcing is uneven and Lindner's volume planning should not assume one path.",
+      "item_ids": [
+        "gn-90bd20d199"
+      ]
+    },
+    {
+      "text": "Drone photos hint at giga presses at Tesla's Optimus factory site, a sign of OEM insourcing that could affect Lindner's structural part business with Tesla.",
+      "item_ids": [
+        "gn-33038a2187"
+      ]
+    },
+    {
+      "text": "A foundry-planet market overview compares gigacasting and megacasting; it is useful context on how much mid-size structural volume is at risk from insourcing.",
+      "item_ids": [
+        "gn-15b97ea133"
+      ]
+    },
+    {
+      "text": "Xiaomi's SU7 received an EPD certification, signalling that OEMs may increasingly demand product carbon data from aluminium casting suppliers, which touches Lindner's PCF and CBAM exposure.",
+      "item_ids": [
+        "gn-65f0429f52"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Sales lead: review Tesla and VW programme volumes against the insourcing signals and flag any at-risk parts for the next planning meeting.",
+      "item_ids": [
+        "gn-90bd20d199",
+        "gn-33038a2187"
+      ]
+    },
+    {
+      "text": "Sustainability/quality lead: check whether Lindner can deliver part-level carbon footprint (PCF) data on request, and list gaps before customers ask.",
+      "item_ids": [
+        "gn-65f0429f52"
+      ]
+    },
+    {
+      "text": "Business development: read the foundry-planet overview and note where mid-size integrated castings could be offered as an alternative to full gigacasting.",
+      "item_ids": [
+        "gn-15b97ea133"
+      ]
+    }
+  ],
+  "top_signal": "gn-90bd20d199",
+  "stats": {
+    "scanned": 99,
+    "after_dedupe": 95,
+    "scored": 95,
+    "kept": 4,
+    "threats": 2,
+    "opportunities": 1,
+    "watch": 1,
+    "sources": 65,
+    "per_source": {
+      "arxiv": 11,
+      "google_news": 88
+    },
+    "per_news_type": {
+      "research": 0,
+      "competitor": 0,
+      "industry": 4,
+      "funding": 0,
+      "regulation": 0,
+      "events": 0
+    },
+    "per_signal": {
+      "threat": 2,
+      "opportunity": 1,
+      "watch": 1
+    },
+    "per_watch_field": {
+      "gigacasting": 3,
+      "low-carbon-alloys": 1,
+      "defect-detection": 0,
+      "digital-twins": 0
+    }
+  },
+  "items": [
+    {
+      "id": "gn-90bd20d199",
+      "source": "google_news",
+      "title": "Megacasting paths diverge: Volkswagen halts German plant project, Toyota sticks with Shanghai mass production",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB0eUlhckVGLXFoNU5jenFVOHlUMGdNQ21jb0hpS1M4VHd5WTllU2UzbDRsMDJ1U1VtMGkzRGlJVUFkR0EtZFhMYXNNM29ieUxsTHBaNDZ2Zy1IUmdRbk5oYldaaU01QjhmR2ROWTFUVkg3RHlXM3c",
+      "date": "2026-11-18",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "VW halting its German gigacasting plant and Toyota's Shanghai mass production show OEM paths diverging, affecting Lindner's insourcing risk and volume planning.",
+      "publisher": "BigGo Finance",
+      "story": "Volkswagen cancels gigacasting project",
+      "also_reported_by": [
+        "CarExpert"
+      ]
+    },
+    {
+      "id": "gn-33038a2187",
+      "source": "google_news",
+      "title": "Drone Photos Hint at Giga Presses for Tesla’s Optimus Factory",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPNHBSaDE5VWlDV0xOZ19vV1pVRUdKb2xWeHo4M25wU1FmcFhUZjdyRjNwSjFCWnRFbXVLNkxGNnZlYjVBYjlvUy1nYnN1NXl6bzIwbTNYRmE4UHpzaEFuT2h3QnhURWhIZWl0NnMtX2t6WVZtYW5sbkI2bmJqbndBRk9hUQ",
+      "date": "2026-11-21",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Giga presses at a Tesla Optimus site show an OEM insourcing casting capacity, a direct risk to Lindner's structural part business with Tesla.",
+      "publisher": "TeslaNorth.com",
+      "story": "Tesla giga presses Optimus factory",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-15b97ea133",
+      "source": "google_news",
+      "title": "Gigacasting und Megacasting: Wie entwickelt sich der Druckgießmarkt?",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQX2pPYXpTQXMyR3RiUEtBN3ZjVWZLV19SdURaOXBOLUJSWl8wMW93VzNwdkFhd1JsSTBOQTBsT2Z3VVhtWjZ3cU53RTMzOWdzei0yenhXeUMzc0g1LXdrcm1iTWZlQm9zUVNZUGxHc1ZxeFdNazFhNU9ZN1hKSEtkOTc4V0JKSkRRMkJrVExhLXJBYzdaVUw3RGg5bktJRXd6UThBZFhNTQ",
+      "date": "2026-11-17",
+      "snippet": "",
+      "watch_field": "gigacasting",
+      "news_type": "industry",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Market overview of gigacasting versus megacasting; if OEMs insource body structures, Lindner's mid-size EV structural part volumes are at risk.",
+      "publisher": "foundry-planet.com",
+      "story": "Gigacasting market development overview",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-65f0429f52",
+      "source": "google_news",
+      "title": "Xiaomi Aktie: SU7 erhält EPD-Zertifizierung",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQelpiajNJN1lHRXRYanhrUzY3QUpqWHFXNmlmNi1oRTVNVUFpSVdmRFdweHZPR244emo1d25jUEdRR0RCeG1oTEdBY2hhMGlsbmpzdjFXMXN2djNmbVYxTjNQWFdKWTg1Y2I2SzFwUk1NbFY3Q0RzT0Z1LTl6b08waklxZ2lrTWItVEcyUzJvZ09xNTZpMFJrdGhGZw",
+      "date": "2026-11-16",
+      "snippet": "",
+      "watch_field": "low-carbon-alloys",
+      "news_type": "industry",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "SU7 EPD certification signals OEMs requiring product carbon data from aluminium castings suppliers, relevant to Lindner's PCF and CBAM exposure.",
+      "publisher": "Börse Express",
+      "story": "Xiaomi green aluminium low-carbon sourcing",
+      "also_reported_by": []
+    }
+  ]
+}
