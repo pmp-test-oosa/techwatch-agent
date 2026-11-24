@@ -29,17 +29,17 @@
             "start": "2026-11-09",
             "end": "2026-11-15"
           },
-          "headline": "CRA-Meldepflichten rücken näher, CBAM bleibt nach EU-Gerichtsurteil bestehen",
-          "kept": 8,
-          "scanned": 188,
+          "headline": "CRA obligations and CBAM ruling tighten compliance for manufacturers",
+          "kept": 9,
+          "scanned": 253,
           "signals": {
-            "threat": 3,
+            "threat": 4,
             "opportunity": 3,
             "watch": 2
           },
           "backfilled": true,
           "quiet_week": false,
-          "generated_at": "2026-11-24T02:15:46+00:00"
+          "generated_at": "2026-11-24T02:30:23+00:00"
         },
         {
           "week": "2026-W45",
@@ -65,5 +65,5 @@
       "fictional": false
     }
   ],
-  "updated_at": "2026-11-24T02:27:46+00:00"
+  "updated_at": "2026-11-24T02:30:23+00:00"
 }
