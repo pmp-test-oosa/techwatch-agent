@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "profile": "tmg-radar",
+  "week": "2026-W46",
+  "week_number": 46,
+  "window": {
+    "start": "2026-11-09",
+    "end": "2026-11-15"
+  },
+  "generated_at": "2026-11-24T02:15:46+00:00",
+  "backfilled": true,
+  "quiet_week": false,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "CRA-Meldepflichten rücken näher, CBAM bleibt nach EU-Gerichtsurteil bestehen",
+  "summary": [
+    {
+      "text": "Für Hersteller vernetzter Maschinen gelten laut Bericht Meldepflichten für Schwachstellen unter dem Cyber Resilience Act, daher braucht es jetzt Meldeprozesse und Produktsicherheitsprüfungen.",
+      "item_ids": [
+        "gn-b50def3a01"
+      ]
+    },
+    {
+      "text": "Ein Workshop für Produkthersteller zeigt, dass CRA-Pflichten mit Fristen konkret Planung im Mittelstand erfordern.",
+      "item_ids": [
+        "gn-3154240aa1"
+      ]
+    },
+    {
+      "text": "Vorschläge zur Entlastung mittelständischer Unternehmen beim CRA sind noch nicht final, Umfang und Fristen bleiben offen.",
+      "item_ids": [
+        "gn-e8fa99660b"
+      ]
+    },
+    {
+      "text": "Das EU-Gericht stuft CBAM als Klimamaßnahme statt Steuer ein, die Melde- und Zertifikatskosten für Importeure bleiben bestehen; Assofermet fordert zudem eine höhere Freigrenze von 500 t.",
+      "item_ids": [
+        "gn-0b4bf2b588",
+        "gn-52405e505e"
+      ]
+    },
+    {
+      "text": "KI in der Produktion geht von Demos zu streng kontrollierter Nutzung, und ein Eifeler Maschinenbauer liefert ein vergleichbares Praxisbeispiel.",
+      "item_ids": [
+        "gn-db1c67ff11",
+        "gn-2ff9f56433"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Produktverantwortliche und TMG-Berater prüfen, welche vernetzten Produkte unter den CRA fallen, und legen einen Prozess für Schwachstellen- und Vorfallmeldungen fest.",
+      "item_ids": [
+        "gn-b50def3a01",
+        "gn-3154240aa1"
+      ]
+    },
+    {
+      "text": "Metallverarbeiter und Einkauf klären, ob importierte CBAM-Waren betroffen sind, und beobachten die mögliche Anhebung der Freigrenze auf 500 t.",
+      "item_ids": [
+        "gn-0b4bf2b588",
+        "gn-52405e505e"
+      ]
+    },
+    {
+      "text": "Maschinenbauer werten das Eifel-Fallbeispiel aus und wählen einen klar abgegrenzten, kontrollierten KI-Anwendungsfall für einen Pilotversuch.",
+      "item_ids": [
+        "gn-2ff9f56433",
+        "gn-db1c67ff11"
+      ]
+    }
+  ],
+  "top_signal": "gn-b50def3a01",
+  "stats": {
+    "scanned": 188,
+    "after_dedupe": 184,
+    "scored": 100,
+    "kept": 8,
+    "threats": 3,
+    "opportunities": 3,
+    "watch": 2,
+    "sources": 139,
+    "per_source": {
+      "arxiv": 9,
+      "google_news": 176,
+      "idw": 0,
+      "maschinenmarkt": 0,
+      "industry_of_things": 3
+    },
+    "per_news_type": {
+      "research": 0,
+      "competitor": 0,
+      "industry": 2,
+      "funding": 1,
+      "regulation": 4,
+      "events": 1
+    },
+    "per_signal": {
+      "threat": 3,
+      "opportunity": 3,
+      "watch": 2
+    },
+    "per_watch_field": {
+      "ai-production": 2,
+      "iiot-edge": 0,
+      "robotics": 1,
+      "regulation": 5
+    }
+  },
+  "items": [
+    {
+      "id": "gn-b50def3a01",
+      "source": "google_news",
+      "title": "Cyber Resilience Act: Welche Meldepflichten für Hersteller vernetzter Maschinen jetzt gelten",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQRnI4ckZpODNtclZSQXNvM2o4LXkzOWFubTR6OGdneF9lbENpLVNkQnJ0WE4zLXBHZGtXNGlFc3NBaU5LaE9JblFlUExBQXhkNWRPNzF6MmhyMjlhN0sxSTB0bmRuWERyaFEtcjRkR3U4QmZYOXo2cTItQW44RGo5aGlHTHNZZUh2VklfUTR6SFQzZ3ZvUVE",
+      "date": "2026-11-11",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "threat",
+      "relevance": 9,
+      "reason": "CRA reporting duties for vulnerabilities in networked machines apply from September 2026; manufacturers need incident-reporting processes and product security checks now.",
+      "publisher": "IT-techBlog",
+      "story": "Cyber Resilience Act reporting obligations",
+      "also_reported_by": [
+        "Help Net Security",
+        "it-daily.net",
+        "FinTech Global"
+      ]
+    },
+    {
+      "id": "gn-0b4bf2b588",
+      "source": "google_news",
+      "title": "EU High Court Upholds CBAM As Climate Measure, Not Tax",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNUDdJX1NuY3oxRkxObW9IOVFOLXc1dXQ5cnR1V0s2YWdGbGpGT21PemI1YmxaLWlqZ1N5LXp5SnF2VEo0M2JkUnZoVHdMMWV1UWx2OU9saC1pNlZBMWctRV9vZHNhNm1SaDFFUTNDQ1VjT2xjZ0dlYjFFS3RBbG51WGwzZ3ZNSVpncDBNYWZ4clFQMGdaTHZySlhrODRvNGQ2YldEM1NoM1FvZWPSAWhBVV95cUxPQjBtaEh6VGsxZ0pjbENvazItVGFBd3FwRndGWWhLanFFRHFha1c1UXJaWkhsczZKN2hRNlAzTVFEM0dUdmtlc0JQVFRseUV3eXc0aUNTRXNwNE81c1NuMXdXdXhFOEJINg",
+      "date": "2026-11-12",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "threat",
+      "relevance": 8,
+      "reason": "The court ruling confirms CBAM is a climate measure, not a tax, so reporting and certificate costs for importers of covered goods stay in force.",
+      "publisher": "Law360",
+      "story": "EU Court upholds CBAM legality",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-2ff9f56433",
+      "source": "google_news",
+      "title": "Wie ein Maschinenbauer aus der Eifel KI in der Produktion einsetzt",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1nSkhxdk15QXZVUlFvdEJGYzhnT2xwc0JoNVlXb1I2UkZRd3VkcHlxUFpBVEtyN1licnJ6aGpKN1RHZWN3VUI0QXcybkkzYUVya1AzMEtjNnlFRXR0c1BBb0pFNFFRSmwzM3VXWEJDVQ",
+      "date": "2026-11-10",
+      "snippet": "",
+      "watch_field": "ai-production",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "Case study of an Eifel machine builder deploying AI in production; a practical, comparable example for mid-sized machine builders evaluating AI.",
+      "publisher": "tagesschau.de",
+      "story": "Eifel machine builder uses production AI",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-52405e505e",
+      "source": "google_news",
+      "title": "Assofermet calls on EU to raise CBAM exemption threshold to 500 mt",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPV3dndHdKem9fZEJWTF84cDcyVjVuVnhTMTFqNnRieVBOYlN6UlZJcjA2b3g5OGFZX3BzTEY1Y3ozSTJIWlZybGphbVVJTjFYRzV5d0EySUZOM08zeXhnampReGoyTkhJZHhYOFAxaEVhMDdKbm9hYUJ6ZklpNEd4ZjRqVWN4OTBOUnY3MFNITjBsYlU",
+      "date": "2026-11-13",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "A metal trade association lobbies to raise the CBAM exemption threshold to 500 t. Outcome is open, but it decides whether smaller metal importers face reporting duties.",
+      "publisher": "EUROMETAL",
+      "story": "Assofermet urges higher CBAM threshold",
+      "also_reported_by": []
+    },
+    {
+      "id": "it-24720cf957",
+      "source": "industry_of_things",
+      "title": "Agile Robots erhält 500 Millionen Dollar",
+      "url": "https://www.industrial-explorer.de/agile-robots-500-millionen-dollar-finanzierung-8-5-milliarden-bewertung-a-455d8c16233abf197bb0afa1149f86e8",
+      "date": "2026-11-12",
+      "snippet": "Das Münchner Robotik-Unternehmen Agile Robots hat sich in einer neuen Finanzierungsrunde frisches Kapital in Höhe von 500 Millionen Dollar gesichert.",
+      "watch_field": "robotics",
+      "news_type": "funding",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Large funding for a Munich robotics vendor signals capital for scaling cobot and mobile-manipulation products that mid-sized plants could adopt or source.",
+      "publisher": "Industry of Things",
+      "story": "Agile Robots raises $500 million",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-3154240aa1",
+      "source": "google_news",
+      "title": "Cyber Resilience Act: Workshop für Produkthersteller",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPQWRhNVZyYlVNdE9nM2VyVHlkeFVScEpKRW5ybkxZdjcteWN0RlZ1V0o1ZFF5Q2pzUE5WTmZwRXo5STdEWEVMRUREd1BIYWoxRjRPNUhqVDVFeFBwZUctNkxFSEJpTjZEV3l4aWxrZ2Jsak1SMlFVZW1IZE9salhiZmoxZ2pxQVlOQXBCRExWR04zeGNrdzZaRGEtSGViLVMxSk5jYThOdnNoaThrajVKQm5tbw",
+      "date": "2026-11-11",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "events",
+      "signal": "threat",
+      "relevance": 7,
+      "reason": "Workshop on Cyber Resilience Act duties for product manufacturers; CRA obligations for connected products carry deadlines that mid-sized makers must plan for.",
+      "publisher": "Golem.de",
+      "story": "CRA workshop for product manufacturers",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-db1c67ff11",
+      "source": "google_news",
+      "title": "Industrial AI shifts from demos to tightly controlled use",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQcGt2TkwydkRTZHlGRmZXZ29FaVgxNklJUjRKclhSc0dFVVBoZ2o4NGtfcVEwTm9jajNjaDFjQUxudDlqamUtb25keXdPbEpZUE4yVXNtVVVNOENSaHRFU3BCdUctS2ZLTlFoR3pHYTVRM1NmMFMxN3BpaElrOTlLdzZFSnA3UUlEWlNtUlo0bU1YTTdTaWc",
+      "date": "2026-11-11",
+      "snippet": "",
+      "watch_field": "ai-production",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Industry reports AI moving from pilots to tightly controlled production use; mid-sized plants can pursue governed, proven use cases with lower risk and clearer ROI.",
+      "publisher": "DataCenterNews Asia Pacific",
+      "story": "Industrial AI moves to controlled use",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-e8fa99660b",
+      "source": "google_news",
+      "title": "Cyber Resilience Act (CRA) verschlanken – Mittelständische Unternehmen entlasten",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPRy15cUhVaDZYUkxyd0lxRmEzdS1renBvX3FIUEZzU0Q3RkJDd19TMXBiMnJRaGV6QlFzZmJBUjc4UFdYU2cxU1BwZWZQc0xzMEg4a2ZfY3pfUUcwSDhLTllUcGNBUXVGU01KNlpqMGJkS3JjeUxlNENKcGp4Q19jMVVreVJIRXZCMzZzNUZIV0l4Q0h4cWs0Z0piQlZSbmplc0NuWGM1Q1pyellROVdOdnZad3MtUW1HTnFkTmpqTlhFeW0tdkxYZnFFVzcyUQ",
+      "date": "2026-11-11",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "Proposed relief for smaller firms under the Cyber Resilience Act could ease obligations, but scope and deadlines are not final; track the legislative outcome.",
+      "publisher": "verbaende.com",
+      "story": "CRA relief for SMEs proposed",
+      "also_reported_by": []
+    }
+  ]
+}

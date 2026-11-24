@@ -4,6 +4,25 @@
       "id": "tmg-radar",
       "weeks": [
         {
+          "week": "2026-W46",
+          "file": "digests/tmg-radar/2026-W46.json",
+          "window": {
+            "start": "2026-11-09",
+            "end": "2026-11-15"
+          },
+          "headline": "CRA-Meldepflichten rücken näher, CBAM bleibt nach EU-Gerichtsurteil bestehen",
+          "kept": 8,
+          "scanned": 188,
+          "signals": {
+            "threat": 3,
+            "opportunity": 3,
+            "watch": 2
+          },
+          "backfilled": true,
+          "quiet_week": false,
+          "generated_at": "2026-11-24T02:15:46+00:00"
+        },
+        {
           "week": "2026-W45",
           "file": "digests/tmg-radar/2026-W45.json",
           "window": {
@@ -27,5 +46,5 @@
       "fictional": false
     }
   ],
-  "updated_at": "2026-11-24T02:10:37+00:00"
+  "updated_at": "2026-11-24T02:15:46+00:00"
 }
