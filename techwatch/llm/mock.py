@@ -64,7 +64,8 @@ class MockProvider(Provider):
         return {
             "headline": f"{fields[top['watch_field']]} leads a week of {len(items)} signals",
             "summary": [
-                {"text": f"{it['title']}: {it['reason']}", "item_ids": [it["id"]]} for it in items[:5]
+                {"text": f"Mock summary: a {it['signal']} item for {fields[it['watch_field']]} "
+                         f"with relevance {it['relevance']}/10.", "item_ids": [it["id"]]} for it in items[:5]
             ],
             "actions": [
                 {"text": f"Review the {threats} threat item(s) with the affected clients.",

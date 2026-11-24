@@ -1,6 +1,8 @@
 """JSON schemas for LLM output, plus the semantic checks a schema cannot express."""
 from __future__ import annotations
 
+import re
+
 import jsonschema
 
 from ..config import ACTIONS_MAX, HEADLINE_MAX_WORDS, NEWS_TYPES, SIGNALS, SUMMARY_MAX_BULLETS
@@ -65,6 +67,24 @@ def _lenient(schema: dict) -> dict:
 DIGEST_SCHEMA_LENIENT = _lenient(DIGEST_SCHEMA)
 
 
+# German function words that do not occur in normal English text ("die" is left out: die casting).
+GERMAN_WORDS = {"und", "der", "das", "für", "werden", "wird", "nicht", "sind", "auf", "bereits", "eine",
+                "einen", "einer", "bei", "durch", "sowie", "laut", "dass", "zum", "zur", "vom", "noch", "auch"}
+
+
+def looks_german(text: str) -> bool:
+    words = re.findall(r"\w+", text.lower())
+    hits = sum(1 for w in words if w in GERMAN_WORDS)
+    return hits >= 3 or (hits >= 2 and hits / max(len(words), 1) > 0.12)
+
+
+def require_english(texts: list[str], what: str) -> None:
+    german = [t for t in texts if looks_german(t)]
+    if german:
+        raise ValueError(f"{what} must be written in English, also for German items; "
+                         f"German text found: {german[0][:80]!r}")
+
+
 def check_scores(result: dict, items: list[dict]) -> list[dict]:
     jsonschema.validate(result, SCORE_SCHEMA)
     want = {it["id"] for it in items}
@@ -73,6 +93,7 @@ def check_scores(result: dict, items: list[dict]) -> list[dict]:
     missing = want - got_ids
     if missing:
         raise ValueError(f"scores missing for ids {sorted(missing)}")
+    require_english([s["reason"] for s in got], "every reason")
     return got
 
 
@@ -89,4 +110,6 @@ def check_digest(result: dict, items: list[dict]) -> dict:
             unknown = [r for r in entry["item_ids"] if r not in ids]
             if unknown:
                 raise ValueError(f"{part} references unknown ids {unknown}")
+    require_english([result["headline"]] + [e["text"] for e in result["summary"] + result["actions"]],
+                    "the headline, summary and actions")
     return result

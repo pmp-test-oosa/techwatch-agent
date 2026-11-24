@@ -307,3 +307,27 @@ def test_failure_report_redacts_secrets(tmp_path, monkeypatch):
     ops.failure_report(log, tmp_path / "issue.md")
     text = (tmp_path / "issue.md").read_text(encoding="utf-8")
     assert "SECRET" not in text and "auth *** failed" in text
+
+
+def test_german_digest_text_is_rejected_so_the_model_retries_in_english():
+    from techwatch.llm.schemas import looks_german
+    assert looks_german("Für Hersteller vernetzter Maschinen gelten laut Bericht Meldepflichten, daher braucht es jetzt einen Prozess.")
+    assert looks_german("CRA-Meldepflichten gelten bereits; CBAM-Regeln für Drittlandspreise und Gratiszertifikate werden konkreter")
+    assert not looks_german("Germany's Bundesrat cleared the Cyber Resilience Act law, so die casting makers face new duties.")
+    assert not looks_german("Siemens extends its industrial AI copilot to shop floor maintenance teams")
+
+
+def test_unreachable_feed_is_tried_only_once_per_run(monkeypatch):
+    p = load_profile(PROFILE)
+    src = RssFeedSource()
+    calls = []
+
+    def boom(url):
+        calls.append(url)
+        raise TimeoutError("timed out")
+    monkeypatch.setattr(src, "http_get", boom)
+    w = Window(date(2026, 10, 12), date(2026, 10, 18))
+    for f in p["watch_fields"]:
+        with pytest.raises(Exception):
+            src.collect(p, f, w)
+    assert len(calls) == 1

@@ -51,10 +51,17 @@ class RssFeedSource(Source):
         super().__init__()
         self._entries: list[dict] | None = None
         self._assigned: dict[str, list[dict]] = {}
+        self._error: Exception | None = None  # the feed is fetched at most once per run
 
     def entries(self) -> list[dict]:
+        if self._error is not None:
+            raise RuntimeError(f"feed unavailable in this run ({type(self._error).__name__})")
         if self._entries is None:
-            root = ET.fromstring(self.http_get(self.url))
+            try:
+                root = ET.fromstring(self.http_get(self.url))
+            except Exception as exc:
+                self._error = exc
+                raise
             out = []
             for node in root.iter():
                 if _local(node.tag) not in ("item", "entry"):
