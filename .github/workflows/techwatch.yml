@@ -131,3 +131,4 @@ jobs:
       contents: read
       pages: write
       id-token: write
+      issues: write

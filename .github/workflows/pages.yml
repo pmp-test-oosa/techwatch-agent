@@ -2,6 +2,8 @@ name: Deploy site to GitHub Pages
 
 # Static site from /site. Called by the digest workflow after every run (pushes made with the
 # workflow token do not trigger other workflows), and on code pushes to main.
+# Upload and deploy run in separate jobs: the artifact list is eventually consistent, and a
+# deploy in the same job right after the upload can miss the artifact.
 on:
   push:
     branches: [main]
@@ -13,18 +15,16 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out the latest main (includes the data the digest job just pushed)
         uses: actions/checkout@v7
@@ -39,6 +39,48 @@ jobs:
         with:
           path: site
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url }}
+    steps:
       - name: Deploy
-        id: deployment
+        id: deploy1
+        continue-on-error: true
         uses: actions/deploy-pages@v5
+
+      - name: Wait before retry
+        if: steps.deploy1.outcome == 'failure'
+        run: sleep 45
+
+      - name: Deploy (retry)
+        id: deploy2
+        if: steps.deploy1.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+
+  report:
+    needs: [build, deploy]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      ISSUE: "TechWatch site deploy failed"
+    steps:
+      - name: Check out (issue scripts)
+        uses: actions/checkout@v7
+
+      - name: Open or close the deploy issue
+        run: |
+          if [ "${{ needs.build.result }}" = "success" ] && [ "${{ needs.deploy.result }}" = "success" ]; then
+            bash .github/scripts/close-issue.sh "$ISSUE" "Resolved: the site was deployed by ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}."
+          else
+            printf 'Deploying the website to GitHub Pages failed (build: %s, deploy: %s), also after one automatic retry.\n\nRun: %s\n\nThe data in the repository is complete; only the website is out of date. The next digest run deploys again automatically, and this issue closes itself after the next successful deploy.\n' \
+              "${{ needs.build.result }}" "${{ needs.deploy.result }}" \
+              "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" > issue.md
+            bash .github/scripts/upsert-issue.sh "$ISSUE" issue.md
+          fi
