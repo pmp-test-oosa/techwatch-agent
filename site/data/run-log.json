@@ -7,6 +7,25 @@
         "start": "2026-11-16",
         "end": "2026-11-22"
       },
+      "generated_at": "2026-11-24T15:54:00+00:00",
+      "status": "skipped",
+      "backfilled": false,
+      "dry_run": false,
+      "provider": "claude_subscription",
+      "trigger": "schedule (fallback)",
+      "run_id": "45430739438",
+      "run_url": "https://github.com/pmp-test-oosa/techwatch-agent/actions/runs/45430739438",
+      "llm_calls": 0,
+      "duration_s": 0.0,
+      "note": "Digest for 2026-W47 already exists (generated 2026-11-24 02:33 UTC); nothing to do."
+    },
+    {
+      "profile": "tmg-radar",
+      "week": "2026-W47",
+      "window": {
+        "start": "2026-11-16",
+        "end": "2026-11-22"
+      },
       "generated_at": "2026-11-24T02:34:43+00:00",
       "status": "skipped",
       "backfilled": false,
