@@ -7,7 +7,7 @@
     "start": "2026-11-02",
     "end": "2026-11-08"
   },
-  "generated_at": "2026-11-24T02:10:37+00:00",
+  "generated_at": "2026-11-24T02:27:46+00:00",
   "backfilled": true,
   "quiet_week": false,
   "dry_run": false,
@@ -16,105 +16,118 @@
     "score": "haiku",
     "digest": "sonnet"
   },
-  "headline": "CRA-Meldepflichten gelten bereits; CBAM-Regeln für Drittlandspreise und Gratiszertifikate werden konkreter",
+  "headline": "Cyber Resilience Act duties loom; Hamburg funds digital twin pilots",
   "summary": [
     {
-      "text": "An industry joint position flags unresolved overlaps between the Cyber Resilience Act and the Machinery Regulation, so manufacturers may face double compliance work.",
+      "text": "CRA vulnerability reporting duties already apply from September 2026, with full obligations in December 2027, so makers of connected products need security processes now.",
+      "item_ids": [
+        "gn-52d8d11047"
+      ]
+    },
+    {
+      "text": "A joint position on Cyber Resilience Act and Machinery Regulation challenges points to overlapping obligations that machine builders must plan for together.",
       "item_ids": [
         "gn-35dd22cc9f"
       ]
     },
     {
-      "text": "CRA vulnerability reporting duties have applied since September 2026 and full obligations follow in December 2027, so makers of connected products need a security checklist now; exida offers software for automatic risk reports.",
+      "text": "A sensor maker's practical CRA case (Kübler, Sendix S58) shows how security documentation and vulnerability reporting can be combined with safety work.",
       "item_ids": [
-        "gn-52d8d11047",
-        "gn-11c4f349af"
+        "gn-1568e1a678"
       ]
     },
     {
-      "text": "New CBAM rules on crediting third-country carbon prices could lower costs for steel and aluminium importers, and Upper Austrian installations get free allowances for longer.",
+      "text": "Hamburg's new grant instrument for digital twin projects could co-finance a mid-sized plant's twin pilot.",
       "item_ids": [
-        "gn-672a59f10c",
-        "gn-b61d167cff"
+        "gn-e838d31b13"
       ]
     },
     {
-      "text": "A reported exemption of UK imports from CBAM is unconfirmed, so importers should wait for the official text before changing their reporting scope.",
+      "text": "MVTec, BMG and Bosch Rexroth are simplifying machine vision integration on ctrlX, and CBAM now allows crediting third-country carbon prices, which could lower costs for steel and aluminium importers.",
       "item_ids": [
-        "gn-3cd1460753"
-      ]
-    },
-    {
-      "text": "MVTec Halcon now runs on Bosch Rexroth's ctrlX OS, and AI optical inspection and Nord's modular IIoT condition monitoring give mid-sized plants low-barrier pilots.",
-      "item_ids": [
-        "gn-62e0e73fb0",
-        "gn-52d3517a94",
-        "gn-c6597d645e"
+        "gn-4a1d2f6e28",
+        "gn-672a59f10c"
       ]
     }
   ],
   "actions": [
     {
-      "text": "Machine builders and makers of connected products: check which products fall under both the CRA and the Machinery Regulation, and start a CRA security and vulnerability-reporting checklist.",
+      "text": "Product and quality leads should check whether your connected products have a vulnerability-reporting process in place, since CRA reporting duties already apply, and start a gap analysis against the 2027 obligations.",
       "item_ids": [
-        "gn-35dd22cc9f",
-        "gn-52d8d11047"
+        "gn-52d8d11047",
+        "gn-1568e1a678"
       ]
     },
     {
-      "text": "Purchasing and customs teams: check whether your steel and aluminium suppliers qualify for third-country carbon price crediting, and verify allocations. Do not act on the UK exemption until it is official.",
+      "text": "Machine builders should have TMG consultants map overlaps between CRA and Machinery Regulation obligations in one joint compliance plan, rather than running two separate projects.",
       "item_ids": [
-        "gn-672a59f10c",
-        "gn-b61d167cff",
-        "gn-3cd1460753"
+        "gn-35dd22cc9f"
       ]
     },
     {
-      "text": "Quality and engineering heads: scope a pilot for AI optical inspection, for example Halcon on ctrlX OS if you already use Bosch Rexroth.",
+      "text": "Plants in Hamburg considering a digital twin should check eligibility and application deadlines for the new grant. Plants adding AI inspection on ctrlX should look at the MVTec/Bosch Rexroth offer.",
       "item_ids": [
-        "gn-62e0e73fb0",
-        "gn-52d3517a94"
+        "gn-e838d31b13",
+        "gn-4a1d2f6e28"
       ]
     }
   ],
   "top_signal": "gn-52d8d11047",
   "stats": {
-    "scanned": 236,
-    "after_dedupe": 225,
+    "scanned": 307,
+    "after_dedupe": 277,
     "scored": 100,
-    "kept": 9,
-    "threats": 2,
-    "opportunities": 5,
-    "watch": 2,
-    "sources": 162,
+    "kept": 8,
+    "threats": 3,
+    "opportunities": 4,
+    "watch": 1,
+    "sources": 193,
     "per_source": {
       "arxiv": 16,
-      "google_news": 216,
+      "google_news": 287,
       "idw": 0,
       "maschinenmarkt": 0,
       "industry_of_things": 4
     },
     "per_news_type": {
       "research": 0,
-      "competitor": 2,
-      "industry": 1,
-      "funding": 0,
-      "regulation": 6,
+      "competitor": 3,
+      "industry": 0,
+      "funding": 1,
+      "regulation": 4,
       "events": 0
     },
     "per_signal": {
-      "threat": 2,
-      "opportunity": 5,
-      "watch": 2
+      "threat": 3,
+      "opportunity": 4,
+      "watch": 1
     },
     "per_watch_field": {
       "ai-production": 1,
       "iiot-edge": 2,
-      "robotics": 0,
-      "regulation": 6
+      "robotics": 1,
+      "regulation": 4
     }
   },
   "items": [
+    {
+      "id": "gn-52d8d11047",
+      "source": "google_news",
+      "title": "The EU Cyber Resilience Act Deadline Is Coming: A Product Team Checklist for IoT Security",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5xRVN1RkRHODdUWloyYnVUSTRNeXh4RlNVZDNycS1pSkIwS1p5amo1a3ZucjkzMENkaUZaNHBPTUxXMTJ6M0pJVnhuT003eUZ0U2M2VkVEQ1hYTml5YW1NYW93NEdMeDZkeFFheWFvcEhESXdoUGhrSXBSUGw",
+      "date": "2026-11-04",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "threat",
+      "relevance": 9,
+      "reason": "CRA vulnerability reporting duties already apply from September 2026; full obligations follow December 2027, so device makers need security processes now.",
+      "publisher": "IoT For All",
+      "story": "EU Cyber Resilience Act compliance checklist",
+      "also_reported_by": [
+        "shattered.io"
+      ]
+    },
     {
       "id": "gn-35dd22cc9f",
       "source": "google_news",
@@ -126,10 +139,61 @@
       "news_type": "regulation",
       "signal": "threat",
       "relevance": 8,
-      "reason": "Industry joint position flags unresolved CRA and Machinery Regulation overlaps; manufacturers may face double compliance work and must track final guidance.",
+      "reason": "Joint position on Cyber Resilience Act and Machinery Regulation challenges signals compliance burdens and overlapping obligations machine builders must plan for before deadlines.",
       "publisher": "eComercio Agrario",
-      "story": "Joint position CRA Machinery Regulation",
+      "story": "CRA Machinery Regulation joint position",
       "also_reported_by": []
+    },
+    {
+      "id": "gn-e838d31b13",
+      "source": "google_news",
+      "title": "Hamburg: Neues Förderinstrument für Projekte mit Digitalem Zwilling",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaXd0d0dhZE1KMkVwbnFZM1dINnZLREltMldLaXRqMFllcUtNeUxUaXMtSi02T1pjMllVTGg3Q1BlVWh6VkVNY2ZTUG9RR3N1dHZ4Tnp1eHN4YUstaFNIYnV6SUR5TjFhN0w1dVUyNmRKYnhBdUw0dVJZY2RSYzc4WGlkMGs0dXRlOGdNdUVhOW91TGhtWWZETmc3TVNvTTBnU1RDd1NRUQ",
+      "date": "2026-11-06",
+      "snippet": "",
+      "watch_field": "iiot-edge",
+      "news_type": "funding",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "New Hamburg grant instrument for digital twin projects could co-finance a mid-sized plant's twin pilot; check eligibility and application deadlines.",
+      "publisher": "Business Geomatics",
+      "story": "Hamburg digital twin funding instrument",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-94f933f2d3",
+      "source": "google_news",
+      "title": "NVIDIA's FOX blueprint sends AI agents from a defect alert to a root-cause report",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQSGJIY2JvN1NHMjItRDhLNGtuMmJUUl91Zkg1VHRJZ2d3bE53d0xFQWM2Mi1tVUdrMktfS0phVld1bWpKR05TWFY1VlZuYlcyQUpOcHBzY2VWTVFmdHhuWjRCdHI1MmlVU2VPY0xFaVEzbFcxSnU5cGE4OEZieGpreUtOVHJZUU16V2dNaWNEZUpyYU1lT2FjZERhaUdETEZkSnNkVzZfTV8yNnlXSjQyNEZuVHRCcm05dUpaQUttWE9vMlJmSC1CSXpuLTlfd00",
+      "date": "2026-11-08",
+      "snippet": "",
+      "watch_field": "iiot-edge",
+      "news_type": "competitor",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "NVIDIA blueprint chains AI agents from defect alerts to root-cause reports; a testable pattern for quality teams, though integration effort is substantial.",
+      "publisher": "MarketScale",
+      "story": "NVIDIA FOX defect root-cause blueprint",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-4a1d2f6e28",
+      "source": "google_news",
+      "title": "MVTec, BMG, Bosch Rexroth Partner to Simplify Machine Vision Integration",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQZU1ERHlMY25wb1FiY0dZczc2X1JTMnNnQ0k3aGhoa0lsRVVGc2FtTDMxeF9zbWVMMGdpbUNzdXJxcEg1cG1tQ09VbmN5b0FaSHdnQ1JvYVZ6WGVRbGxLZnJwNWhySmJKRnVjYzVjVU8ydVdZbUc1cGE1bFVCQmJEbjFnRVZPZXVBNDItcWxXUFc5X0VlaWpvUkRNcWNUbHlyd3NFZ2dLRkVxbldjMFV0M05yTHZCeDNBZmkxV3ZvY1JUdw",
+      "date": "2026-11-06",
+      "snippet": "",
+      "watch_field": "ai-production",
+      "news_type": "competitor",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Bosch Rexroth and MVTec partnership lowers integration effort for machine vision on ctrlX, a practical route for mid-sized plants adding AI inspection.",
+      "publisher": "Vision Systems Design",
+      "story": "MVTec BMG Bosch Rexroth vision partnership",
+      "also_reported_by": [
+        "MarketScale",
+        "Design News"
+      ]
     },
     {
       "id": "gn-672a59f10c",
@@ -140,125 +204,43 @@
       "snippet": "",
       "watch_field": "regulation",
       "news_type": "regulation",
-      "signal": "watch",
-      "relevance": 8,
-      "reason": "Rules on crediting third-country carbon prices could lower CBAM costs for steel and aluminium importers; check whether your supply chain qualifies.",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Crediting third-country carbon prices could lower CBAM costs for steel and aluminium importers; check eligibility.",
       "publisher": "Steel and Stainless Steel News",
-      "story": "CBAM third-country carbon price crediting",
+      "story": "CBAM crediting third-country carbon prices",
       "also_reported_by": []
     },
     {
-      "id": "gn-52d8d11047",
+      "id": "gn-dfbd4ede65",
       "source": "google_news",
-      "title": "The EU Cyber Resilience Act Deadline Is Coming: A Product Team Checklist for IoT Security",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5xRVN1RkRHODdUWloyYnVUSTRNeXh4RlNVZDNycS1pSkIwS1p5amo1a3ZucjkzMENkaUZaNHBPTUxXMTJ6M0pJVnhuT003eUZ0U2M2VkVEQ1hYTml5YW1NYW93NEdMeDZkeFFheWFvcEhESXdoUGhrSXBSUGw",
+      "title": "Pilatus Aircraft trials Hexagon's AEON humanoid robot on its Stans final assembly line",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9PRGg1emlHa1U1djBsZERMRWVZSldIMVJjQnF2THhmTmtocEJBa1ltanVOdVEwMkM2bjhvV0V6eW9BUjlTT21JTE9IdEIyUnpqX0VVUVp2ODh2M3RJVnM5NUEtcFdYMHJ5a0dVSEV2YVVxUDQ",
+      "date": "2026-11-06",
+      "snippet": "",
+      "watch_field": "robotics",
+      "news_type": "competitor",
+      "signal": "watch",
+      "relevance": 7,
+      "reason": "A Swiss aircraft maker is trialling a humanoid on a real final assembly line, giving mid-sized assemblers a concrete peer reference for pilots.",
+      "publisher": "Avi-Go",
+      "story": "Pilatus trials Hexagon AEON humanoid",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-1568e1a678",
+      "source": "google_news",
+      "title": "Cyber Resilience Act in der Praxis: Wie Kübler Safety und Security beim Sendix S58 zusammenführt",
+      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPSEJCRjM4Vk9uSERLc1A3QWZsQ3dzdjRiUDEwN2o4MHp5aWt5aFRUMjduMEdBaUNLMnNIaTd5Q0xWSGYzTUFYNUdiVld0T2h2MVRKbVRyYUxhakN5QkZaRTIxR0tVZGRJdzBXYzlLWEFPZlRJLTdYU3FtSF9XNDFpSWNPNUxIQVFJMFA5YW9fVEJqZVk3OXNiYTM1R25DVndxV2xqdWlQS2NuaDdhOWkwNjQ1NnloZFFpbVdURExDRDFoWUxtcEVQV3RHeGVjUnNXUWNrY1Z2QTFlNGFKeXRqNnE4dGVDeWxWY0FucFhvNkszUUlBYTYxUVZJd2xMbG5BR0xJNFBTWjlDSWJ2Q25r",
       "date": "2026-11-04",
       "snippet": "",
       "watch_field": "regulation",
       "news_type": "regulation",
       "signal": "threat",
-      "relevance": 8,
-      "reason": "CRA reporting duties already apply from September 2026 and full obligations follow in December 2027; makers of connected products should start a security checklist now.",
-      "publisher": "IoT For All",
-      "story": "EU Cyber Resilience Act deadline",
-      "also_reported_by": []
-    },
-    {
-      "id": "gn-11c4f349af",
-      "source": "google_news",
-      "title": "Cyber Resilience Act: exida stellt Software für automatische Risikoberichte vor",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQcWF2UUNVdVlRUC0tUDBSRW9tUnV4cm1MS1QyQ1pHRUR6NnRnbW0tTTU3am16RmFZVjhXdmpYYmNPRHdadWIyMW9IM3FKZUM5S1hIenpLMmN0N1JTYkhZWUJIdDlhRm9kRk9tZTFKOEFNODhjWjd5QnFTNVlTWWtDRDU1QnZLSVFZRXlMcm5NU0FGaDdxRXpZTklFSHJFbVNkMjB0dTRLWnFnUUNFM2cxemJnel9YNlJpSTF6LWk1MUJZNGw5",
-      "date": "2026-11-06",
-      "snippet": "",
-      "watch_field": "regulation",
-      "news_type": "regulation",
-      "signal": "opportunity",
       "relevance": 7,
-      "reason": "CRA reporting duties for vulnerabilities apply since September 2026; this tool could cut documentation effort for manufacturers of connected products.",
-      "publisher": "ad-hoc-news.de",
-      "story": "exida CRA risk-report software",
-      "also_reported_by": []
-    },
-    {
-      "id": "gn-62e0e73fb0",
-      "source": "google_news",
-      "title": "MVTec and BMG bring Halcon machine vision to Bosch Rexroth's ctrlX OS",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQTC1SUGN2Wm5sNk5DSlNGMnJrNE9SY1kwUHVYMkxnMHFYUG1Fb1prdnFETWloN3BEYWNLdHF2R0FGbTFoYWczTkl2S2p2Y25JeWFCUl9kUVF5OXloNFJ0Y0NISnR1cW42cWFSRW9sTm9FLTNCSUpmUWVyY1JLVzBtN1VwUlo4YlRSMTBaRjRsTWx0OG56QlpGT3NTSE45M2ZUUTZra0RqSWVoUndOWjlWZXRMRnBpb2J1LUF6VTRfUQ",
-      "date": "2026-11-06",
-      "snippet": "",
-      "watch_field": "ai-production",
-      "news_type": "competitor",
-      "signal": "opportunity",
-      "relevance": 7,
-      "reason": "Halcon machine vision now integrates into Bosch Rexroth ctrlX OS, letting mid-sized machine builders add vision inspection on existing automation platforms.",
-      "publisher": "MarketScale",
-      "story": "MVTec Halcon Bosch Rexroth integration",
-      "also_reported_by": [
-        "Design News"
-      ]
-    },
-    {
-      "id": "gn-b61d167cff",
-      "source": "google_news",
-      "title": "CBAM Verordnung: Warum OÖ länger Gratiszertifikate bekommt",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNOTA5dUhsUnlfM2hRb3R2ZzhUNzItLUs4NndTN2QyZng4Y2g2c0lQTFVvVVNPdFRxR1pHT3FGWmpvaFhYM0c5ZGZKOUotbGJQNmVvNGlDeTdKTHU0c1BsNlJwOU1sSEVSQ3BrMVRncmhFMWdZSVM0T0gweTRlWHFqV1g4WjU2aG5CZ3l1bDM1SnU0SXk1dGhDclJtdmJwQXZyQkIwdEZFS2VNMkpzS1BJQ2xjOXpuVEwwVzJpUjNB",
-      "date": "2026-11-06",
-      "snippet": "",
-      "watch_field": "regulation",
-      "news_type": "regulation",
-      "signal": "opportunity",
-      "relevance": 7,
-      "reason": "Upper Austrian installations receiving longer CBAM free allowances means a delayed cost burden for local metal and industrial exporters, so affected firms should check their allocation.",
-      "publisher": "Wirtschaftsnachrichten Süd",
-      "story": "CBAM free certificates extension Upper Austria",
-      "also_reported_by": []
-    },
-    {
-      "id": "gn-52d3517a94",
-      "source": "google_news",
-      "title": "»KI erobert die optische Inspektion«",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOTEhQREJ0aWd4ejVDWFpzVXN3T1YybU1tYVFZOGMxREx3eGNLWmJKNXFQZlZIQktRZGVGVElrTDVlbmpmZFFDZU1XUnA0X21aZDdueUNETEFwQVNnWE5JRm94ZDRDUHpUMlFUYkJvaFpKTlFSZjBUWEItbmFvQUh0OFZOMXEyYUdId0xiejBBc3hyczJhYVQ0eGx5ZDZqTWVuXy1QNVZyRFhkWmd0Z19hc3pNUlIyQTd5ZncwanAxX0NRSUxVa3JIdktWMWhOZw",
-      "date": "2026-11-05",
-      "snippet": "",
-      "watch_field": "iiot-edge",
-      "news_type": "industry",
-      "signal": "opportunity",
-      "relevance": 7,
-      "reason": "AI is now taking over optical inspection, a proven quality-control use case that electronics and metal manufacturers can pilot.",
-      "publisher": "elektroniknet",
-      "story": "AI takes over optical inspection",
-      "also_reported_by": []
-    },
-    {
-      "id": "gn-c6597d645e",
-      "source": "google_news",
-      "title": "Nord Drivesystems erweitert Condition Monitoring um modulare IIoT-Lösung",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOLXRqMjhyWTI2UC0zQ2Ewd3o4SG5Ma1p1d2pNTTZDalpZSUxlUUlucjRXVG12WEtERjdxdXljczUyVENhVUlNT0xZcGJfMjJLOFBWbUNnQTQzcnJMTVFoWEtoSThfNUwySVU4c0N0NmZiQkprYVdMaUhoVXhXbzk2TTVjYTZROFRZM0lFZFR2MjZrMGRScEd2eXRNUmViSC1Sb1ltOUJEUW5tNFJJS1ZUUW1hclFXZ3BaUGgxUTJGb3FrYmM",
-      "date": "2026-11-04",
-      "snippet": "",
-      "watch_field": "iiot-edge",
-      "news_type": "competitor",
-      "signal": "opportunity",
-      "relevance": 7,
-      "reason": "Nord Drivesystems adds modular IIoT condition monitoring to its drives, a low-barrier way for mid-sized plants to get machine health data.",
-      "publisher": "Technische Logistik",
-      "story": "Nord Drivesystems modular IIoT condition monitoring",
-      "also_reported_by": []
-    },
-    {
-      "id": "gn-3cd1460753",
-      "source": "google_news",
-      "title": "Major CBAM Shake-Up: EU Reportedly Plans To Exempt UK Imports From January 2026",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQZnJ1WERZb0hqbV9yOGZ2T3ByWnpLR3VQVmpZTnRMWjM2dm1Sc3h0WC1QQklqck93aVE4aFp5SXFMdE1sTkducUdwRXQ1cl81b3lXUWxCeFdDcDczSnBZX1JWemZYUTdxclZ6UHlBZmhuakVlMXFoVUxPY0k4TF9YQjJJLVZ3UllXRFJQWVgtbFBVQVlVeEZ1dnJVVTA5c2VmazdIbTRtNA",
-      "date": "2026-11-03",
-      "snippet": "",
-      "watch_field": "regulation",
-      "news_type": "regulation",
-      "signal": "watch",
-      "relevance": 7,
-      "reason": "Reported CBAM change exempting UK imports could alter reporting scope for manufacturers importing from the UK; the report is unconfirmed, so verify the official text.",
-      "publisher": "Carbon Herald",
-      "story": "EU reportedly exempts UK CBAM imports",
+      "reason": "Practical Cyber Resilience Act case from a sensor maker; manufacturers of connected products must prepare security documentation and vulnerability reporting for CRA deadlines.",
+      "publisher": "PresseBox",
+      "story": "Kübler Sendix CRA compliance case",
       "also_reported_by": []
     }
   ]
