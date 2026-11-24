@@ -1,0 +1,132 @@
+{
+  "id": "tmg-radar",
+  "name": "TMG Technologie-Radar: Produzierender Mittelstand",
+  "fictional": false,
+  "audience": "Consultants of TMG Technologie Management Gruppe and their clients: managing directors and heads of production, engineering and quality in manufacturing SMEs (Mittelstand) in Germany, Austria and Switzerland.\n",
+  "industry": "Manufacturing SMEs in Germany, Austria and Switzerland",
+  "description": "Weekly technology monitoring for clients of TMG Technologie Management Gruppe: the producing Mittelstand in the DACH region, such as machine and plant builders, automotive and industrial suppliers, and metal, plastics and electronics manufacturers. The radar tracks what these companies should know about AI in production, industrial IoT and edge, robotics and automation, and the EU rules that change how they build, report and sell. Relevance means a concrete consequence for a mid-sized manufacturer: a technology becoming affordable or proven, a vendor move, a funding opportunity, or a regulatory obligation with a deadline.\n",
+  "companies_to_watch": [
+    "Siemens",
+    "Bosch",
+    "ABB",
+    "KUKA",
+    "Trumpf",
+    "Festo",
+    "Beckhoff",
+    "SAP",
+    "Schaeffler",
+    "Phoenix Contact",
+    "Universal Robots",
+    "Fanuc"
+  ],
+  "watch_fields": [
+    {
+      "id": "ai-production",
+      "name": "AI in production",
+      "short": "AI in production",
+      "name_de": "KI in der Produktion",
+      "description": "AI-based quality inspection, predictive maintenance and generative AI on the shop floor: what works in real factories, what it costs, and who offers it.\n",
+      "keywords_en": [
+        "predictive maintenance",
+        "machine vision",
+        "industrial AI",
+        "AI quality inspection",
+        "generative AI",
+        "anomaly detection",
+        "shop floor",
+        "industrial copilot"
+      ],
+      "keywords_de": [
+        "Predictive Maintenance",
+        "vorausschauende Wartung",
+        "KI in der Produktion",
+        "industrielle KI",
+        "Qualitätsprüfung",
+        "Bildverarbeitung",
+        "generative KI",
+        "KI-Assistent"
+      ]
+    },
+    {
+      "id": "iiot-edge",
+      "name": "Industrial IoT, edge & Industrie 4.0",
+      "short": "IIoT & edge",
+      "name_de": "Industrial IoT, Edge und Industrie 4.0",
+      "description": "Connected machines, edge computing, OPC UA and private 5G, digital twins and the data platforms that make Industrie 4.0 work for mid-sized plants.\n",
+      "keywords_en": [
+        "industrial IoT",
+        "IIoT",
+        "edge computing",
+        "Industry 4.0",
+        "digital twin",
+        "OPC UA",
+        "private 5G",
+        "smart factory"
+      ],
+      "keywords_de": [
+        "Industrie 4.0",
+        "IIoT",
+        "Edge Computing",
+        "digitaler Zwilling",
+        "OPC UA",
+        "Campusnetz",
+        "Smart Factory",
+        "vernetzte Produktion"
+      ]
+    },
+    {
+      "id": "robotics",
+      "name": "Robotics, cobots & automation",
+      "short": "Robotics & cobots",
+      "name_de": "Robotik, Cobots und Automatisierung",
+      "description": "Industrial and collaborative robots, mobile robots, humanoids and automation that a mid-sized plant can deploy against labour shortage and cost pressure.\n",
+      "keywords_en": [
+        "industrial robot",
+        "cobot",
+        "collaborative robot",
+        "humanoid robot",
+        "autonomous mobile robot",
+        "bin picking",
+        "robotic automation",
+        "factory automation"
+      ],
+      "keywords_de": [
+        "Industrieroboter",
+        "Cobot",
+        "kollaborativer Roboter",
+        "Robotik",
+        "humanoider Roboter",
+        "fahrerloses Transportsystem",
+        "Greiftechnik",
+        "Automatisierungslösung"
+      ]
+    },
+    {
+      "id": "regulation",
+      "name": "Regulation & sustainability for manufacturers",
+      "short": "Regulation & ESG",
+      "name_de": "Regulierung und Nachhaltigkeit für Hersteller",
+      "description": "CBAM, CSRD, the EU AI Act, the Machinery Regulation, the Cyber Resilience Act and the digital product passport: deadlines, obligations and costs for manufacturers.\n",
+      "keywords_en": [
+        "CBAM",
+        "CSRD",
+        "EU AI Act",
+        "Machinery Regulation",
+        "Cyber Resilience Act",
+        "digital product passport",
+        "ESPR",
+        "supply chain act"
+      ],
+      "keywords_de": [
+        "CBAM",
+        "CSRD",
+        "KI-Verordnung",
+        "Maschinenverordnung",
+        "Cyber Resilience Act",
+        "digitaler Produktpass",
+        "Lieferkettengesetz",
+        "Nachhaltigkeitsberichterstattung"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "profiles": [
+    {
+      "id": "tmg-radar",
+      "weeks": [
+        {
+          "week": "2026-W45",
+          "file": "digests/tmg-radar/2026-W45.json",
+          "window": {
+            "start": "2026-11-02",
+            "end": "2026-11-08"
+          },
+          "headline": "CRA-Meldepflichten gelten bereits; CBAM-Regeln für Drittlandspreise und Gratiszertifikate werden konkreter",
+          "kept": 9,
+          "scanned": 236,
+          "signals": {
+            "threat": 2,
+            "opportunity": 5,
+            "watch": 2
+          },
+          "backfilled": true,
+          "quiet_week": false,
+          "generated_at": "2026-11-24T02:10:37+00:00"
+        }
+      ],
+      "name": "TMG Technologie-Radar: Produzierender Mittelstand",
+      "fictional": false
+    }
+  ],
+  "updated_at": "2026-11-24T02:10:37+00:00"
+}

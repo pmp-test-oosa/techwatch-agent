@@ -1,0 +1,70 @@
+{
+  "runs": [
+    {
+      "profile": "tmg-radar",
+      "week": "2026-W45",
+      "window": {
+        "start": "2026-11-02",
+        "end": "2026-11-08"
+      },
+      "generated_at": "2026-11-24T02:10:37+00:00",
+      "status": "published",
+      "backfilled": true,
+      "dry_run": false,
+      "provider": "claude_subscription",
+      "trigger": "manual",
+      "run_id": "45309687663",
+      "run_url": "https://github.com/pmp-test-oosa/techwatch-agent/actions/runs/45309687663",
+      "models": {
+        "score": "haiku",
+        "digest": "sonnet"
+      },
+      "models_used": [
+        "claude-haiku-5-5",
+        "claude-sonnet-5-5"
+      ],
+      "items_per_source": {
+        "arxiv": 16,
+        "google_news": 216,
+        "idw": 0,
+        "maschinenmarkt": 0,
+        "industry_of_things": 4
+      },
+      "collected": 236,
+      "dedupe": {
+        "input": 236,
+        "spam": 8,
+        "duplicate": 3,
+        "already_published": 0,
+        "empty": 0,
+        "output": 225
+      },
+      "after_dedupe": 225,
+      "scored": 100,
+      "kept": 9,
+      "per_news_type": {
+        "research": 0,
+        "competitor": 2,
+        "industry": 1,
+        "funding": 0,
+        "regulation": 6,
+        "events": 0
+      },
+      "per_signal": {
+        "threat": 2,
+        "opportunity": 5,
+        "watch": 2
+      },
+      "llm_calls": 9,
+      "duration_s": 328.0,
+      "errors": [
+        "idw/ai-production: URLError: <urlopen error timed out>",
+        "idw/iiot-edge: URLError: <urlopen error timed out>",
+        "idw/robotics: URLError: <urlopen error timed out>",
+        "idw/regulation: URLError: <urlopen error timed out>"
+      ],
+      "trimmed": [],
+      "quiet_week": false
+    }
+  ]
+}
