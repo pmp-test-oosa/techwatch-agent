@@ -5,16 +5,14 @@ import logging
 
 from .config import BATCH_SIZE, MAX_SCORED_ITEMS
 from .llm.base import Provider
-from .profile import field_keywords
+from .profile import company_hits, keyword_hits
 
 log = logging.getLogger("techwatch.score")
 
 
-def keyword_hits(item: dict, field: dict, competitors: list[str]) -> int:
-    text = f"{item['title']} {item['snippet']}".lower()
-    hits = sum(1 for k in field_keywords(field) if k in text)
-    hits += sum(2 for c in competitors if c.lower() in text)
-    return hits
+def priority(item: dict, field: dict, profile: dict) -> int:
+    text = f"{item['title']} {item['snippet']}"
+    return keyword_hits(text, field) + 2 * len(company_hits(text, profile))
 
 
 def preselect(items: list[dict], profile: dict, cap: int) -> list[dict]:
@@ -25,7 +23,7 @@ def preselect(items: list[dict], profile: dict, cap: int) -> list[dict]:
     queues = []
     for fid, field in fields.items():
         q = [it for it in items if it["watch_field"] == fid]
-        q.sort(key=lambda it: (-keyword_hits(it, field, profile["competitors"]), _neg_date(it["date"]), it["id"]))
+        q.sort(key=lambda it: (-priority(it, field, profile), _neg_date(it["date"]), it["id"]))
         queues.append(q)
     picked: list[dict] = []
     while len(picked) < cap and any(queues):

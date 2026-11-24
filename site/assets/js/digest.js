@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="feature__aside">
-          <p class="aside-label">Relevance for this client</p>
+          <p class="aside-label">Relevance score</p>
           <div class="score" aria-hidden="true"><span class="score__n">${esc(top.relevance)}</span><span class="score__of">/10</span></div>
           ${relBar(top.relevance)}
           <dl><div><dt>Watch field</dt><dd>${esc(fieldName(top.watch_field))}</dd></div>

@@ -13,7 +13,8 @@ log = logging.getLogger("techwatch.normalize")
 
 ITEM_KEYS = ("id", "source", "title", "url", "date", "snippet", "watch_field",
              "news_type", "signal", "relevance", "reason")
-SOURCE_PREFIX = {"arxiv": "ax", "google_news": "gn", "fixture": "fx"}
+SOURCE_PREFIX = {"arxiv": "ax", "google_news": "gn", "fixture": "fx",
+                 "idw": "iw", "maschinenmarkt": "mm", "industry_of_things": "it"}
 
 # SEO press-release spam ("... Market Size to reach $X billion by 2032, CAGR ...").
 SPAM = re.compile(

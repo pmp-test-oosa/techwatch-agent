@@ -7,14 +7,19 @@ from .arxiv import ArxivSource
 from .base import Source
 from .fixtures import FixtureSource
 from .google_news import GoogleNewsSource
+from .rss import IdwSource, IndustryOfThingsSource, MaschinenmarktSource
 
 SOURCES: dict[str, type[Source]] = {
     ArxivSource.name: ArxivSource,
     GoogleNewsSource.name: GoogleNewsSource,
     FixtureSource.name: FixtureSource,
+    IdwSource.name: IdwSource,
+    MaschinenmarktSource.name: MaschinenmarktSource,
+    IndustryOfThingsSource.name: IndustryOfThingsSource,
 }
 
-LIVE_SOURCES = [ArxivSource.name, GoogleNewsSource.name]
+LIVE_SOURCES = [ArxivSource.name, GoogleNewsSource.name, IdwSource.name, MaschinenmarktSource.name,
+                IndustryOfThingsSource.name]
 FIXTURE_SOURCES = [FixtureSource.name]
 
 

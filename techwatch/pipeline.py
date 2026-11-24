@@ -1,4 +1,8 @@
-"""Orchestrates the 8 steps for one profile and one date window."""
+"""Orchestrates the 8 steps for one profile and one date window.
+
+Every run leaves exactly one run-log record: published, skipped (the week already has a digest,
+no LLM call) or failed (nothing published; the error and the step are recorded).
+"""
 from __future__ import annotations
 
 import logging
@@ -33,8 +37,9 @@ class RunOptions:
     max_llm_calls: int
     dry_run: bool = False
     commit: bool = False
+    force: bool = False         # regenerate a week that already has a digest
     extra_errors: list[str] = field(default_factory=list)
-    today: date | None = None  # reference date of the run (--today); fixtures are dated relative to it
+    today: date | None = None   # reference date of the run (--today); fixtures are dated relative to it
 
     @property
     def publish_to_site(self) -> bool:
@@ -43,6 +48,14 @@ class RunOptions:
 
 class PipelineError(Exception):
     pass
+
+
+class RunFailed(Exception):
+    """A window failed. The failure is already recorded in the run log; nothing was published."""
+
+    def __init__(self, record: dict, cause: Exception):
+        super().__init__(f"{record['profile']} {record['week']} failed in step {record['stage']}: {cause}")
+        self.record = record
 
 
 def check_safe(opts: RunOptions) -> None:
@@ -56,106 +69,158 @@ def publisher_group(item: dict) -> str:
     return "arXiv" if item["source"] == "arxiv" else (item.get("publisher") or item["source"])
 
 
+def now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def base_record(profile_id: str, window: Window, opts: RunOptions, status: str, backfilled: bool) -> dict:
+    return {
+        "profile": profile_id,
+        "week": window.label,
+        "window": window.as_dict(),
+        "generated_at": now_iso(),
+        "status": status,
+        "backfilled": backfilled,
+        "dry_run": opts.dry_run,
+        "provider": opts.provider,
+        **publish_step.run_context(),
+    }
+
+
+def _finish(opts: RunOptions, record: dict, message: str) -> None:
+    publish_step.append_run(opts.data_dir, record)
+    if opts.commit:
+        publish_step.commit(opts.data_dir, message)
+
+
 def run_window(profile_id: str, window: Window, opts: RunOptions, backfilled: bool) -> dict:
     check_safe(opts)
     t0 = time.monotonic()
+    existing = publish_step.digest_path(opts.data_dir, profile_id, window.label)
+    if existing.exists() and not opts.force:
+        prev = publish_step.read_json(existing, {})
+        generated = str(prev.get("generated_at", "?"))[:16].replace("T", " ")
+        record = {**base_record(profile_id, window, opts, "skipped", backfilled), "llm_calls": 0,
+                  "duration_s": 0.0,
+                  "note": f"Digest for {window.label} already exists (generated {generated} UTC); nothing to do."}
+        log.info("=== skip %s %s: digest already exists ===", profile_id, window.label)
+        _finish(opts, record, f"chore: run-log {profile_id} {window.label} (skipped, digest exists)")
+        return record
+
     log.info("=== run profile=%s window=%s provider=%s dry_run=%s backfilled=%s ===",
              profile_id, window, opts.provider, opts.dry_run, backfilled)
+    state = {"stage": "load", "per_source": {}, "errors": list(opts.extra_errors)}
+    provider = None
+    try:
+        profile = load_profile(profile_id)                                         # 1 LOAD
+        field_ids = [f["id"] for f in profile["watch_fields"]]
 
-    profile = load_profile(profile_id)                                         # 1 LOAD
-    field_ids = [f["id"] for f in profile["watch_fields"]]
+        state["stage"] = "collect"                                                 # 2 COLLECT
+        sources = build_sources(opts.sources, opts.today)
+        raw, per_source, errors = collect_step.collect(profile, window, sources)
+        state["per_source"] = per_source
+        state["errors"] += errors
+        collected = {}
+        for r in raw:
+            n = normalize_step.normalize(r)
+            collected[n["id"]] = n["url"]
 
-    sources = build_sources(opts.sources, opts.today)                                    # 2 COLLECT
-    raw, per_source, errors = collect_step.collect(profile, window, sources)
-    collected = {}
-    for r in raw:
-        n = normalize_step.normalize(r)
-        collected[n["id"]] = n["url"]
+        state["stage"] = "normalize"                                               # 3 NORMALIZE + DEDUPE
+        published = normalize_step.load_published(opts.data_dir, profile_id, window.label)
+        items, dedupe_stats = normalize_step.normalize_and_dedupe(raw, normalize_step.published_keys(published))
 
-    published = normalize_step.load_published(opts.data_dir, profile_id, window.label)
-    items, dedupe_stats = normalize_step.normalize_and_dedupe(                 # 3 NORMALIZE + DEDUPE
-        raw, normalize_step.published_keys(published))
+        state["stage"] = "score"                                                   # 4 SCORE
+        provider = get_provider(opts.provider, opts.max_llm_calls)
+        max_batches = min(opts.max_llm_calls - 1, -(-MAX_SCORED_ITEMS // BATCH_SIZE))
+        scored, _ = score_step.score(items, profile, provider, max_batches)
 
-    provider = get_provider(opts.provider, opts.max_llm_calls)                 # 4 SCORE
-    max_batches = min(opts.max_llm_calls - 1, -(-MAX_SCORED_ITEMS // BATCH_SIZE))
-    scored, score_stats = score_step.score(items, profile, provider, max_batches)
+        state["stage"] = "filter"                                                  # 5 FILTER
+        kept = filter_step.select(scored, field_ids, published)
 
-    kept = filter_step.select(scored, field_ids, published)                    # 5 FILTER
+        state["stage"] = "digest"                                                  # 6 DIGEST
+        digest, trimmed = digest_step.trim(digest_step.write(kept, profile, provider))
 
-    digest = digest_step.write(kept, profile, provider)                        # 6 DIGEST
+        state["stage"] = "validate"                                                # 7 VALIDATE
+        now = now_iso()
+        sig = Counter(it["signal"] for it in kept)
+        per_type = Counter(it["news_type"] for it in kept)
+        per_field = Counter(it["watch_field"] for it in kept)
+        quiet = len(kept) < QUIET_WEEK_THRESHOLD
+        models = {"score": provider.score_model, "digest": provider.digest_model}
+        stats = {
+            "scanned": len(raw),
+            "after_dedupe": len(items),
+            "scored": len(scored),
+            "kept": len(kept),
+            "threats": sig.get("threat", 0),
+            "opportunities": sig.get("opportunity", 0),
+            "watch": sig.get("watch", 0),
+            "sources": len({publisher_group(it) for it in items}),
+            "per_source": per_source,
+            "per_news_type": {t: per_type.get(t, 0) for t in NEWS_TYPES},
+            "per_signal": {s: sig.get(s, 0) for s in SIGNALS},
+            "per_watch_field": {f: per_field.get(f, 0) for f in field_ids},
+        }
+        doc = {
+            "schema_version": 1,
+            "profile": profile_id,
+            "week": window.label,
+            "week_number": window.week_number,
+            "window": window.as_dict(),
+            "generated_at": now,
+            "backfilled": backfilled,
+            "quiet_week": quiet,
+            "dry_run": opts.dry_run,
+            "provider": provider.name,
+            "models": models,
+            "headline": digest["headline"],
+            "summary": digest["summary"],
+            "actions": digest["actions"],
+            "top_signal": digest["top_signal"],
+            "stats": stats,
+            "items": [{k: it.get(k) for k in normalize_step.ITEM_KEYS + ("publisher", "story", "also_reported_by")}
+                      for it in kept],
+        }
+        validate_step.validate(doc, window, collected, field_ids, opts.publish_to_site)
 
-    validate_step.validate(digest, kept, window, collected, field_ids,        # 7 VALIDATE
-                           opts.publish_to_site)
-
-    now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()        # 8 PUBLISH
-    sig = Counter(it["signal"] for it in kept)
-    per_type = Counter(it["news_type"] for it in kept)
-    per_field = Counter(it["watch_field"] for it in kept)
-    quiet = len(kept) < QUIET_WEEK_THRESHOLD
-    models = {"score": provider.score_model, "digest": provider.digest_model}
-    duration = round(time.monotonic() - t0, 1)
-    all_errors = errors + opts.extra_errors
-    stats = {
-        "scanned": len(raw),
-        "after_dedupe": len(items),
-        "scored": len(scored),
-        "kept": len(kept),
-        "threats": sig.get("threat", 0),
-        "opportunities": sig.get("opportunity", 0),
-        "watch": sig.get("watch", 0),
-        "sources": len({publisher_group(it) for it in items}),
-        "per_source": per_source,
-        "per_news_type": {t: per_type.get(t, 0) for t in NEWS_TYPES},
-        "per_signal": {s: sig.get(s, 0) for s in SIGNALS},
-        "per_watch_field": {f: per_field.get(f, 0) for f in field_ids},
-    }
-    doc = {
-        "schema_version": 1,
-        "profile": profile_id,
-        "week": window.label,
-        "week_number": window.week_number,
-        "window": window.as_dict(),
-        "generated_at": now,
-        "backfilled": backfilled,
-        "quiet_week": quiet,
-        "dry_run": opts.dry_run,
-        "provider": provider.name,
-        "models": models,
-        "headline": digest["headline"],
-        "summary": digest["summary"],
-        "actions": digest["actions"],
-        "top_signal": digest["top_signal"],
-        "stats": stats,
-        "items": [{k: it.get(k) for k in normalize_step.ITEM_KEYS + ("publisher", "story", "also_reported_by")}
-                  for it in kept],
-    }
-    run_record = {
-        "profile": profile_id,
-        "week": window.label,
-        "window": window.as_dict(),
-        "generated_at": now,
-        "backfilled": backfilled,
-        "dry_run": opts.dry_run,
-        "status": "published",
-        "provider": provider.name,
-        "models": models,
-        "models_used": sorted(provider.models_used),
-        "items_per_source": per_source,
-        "collected": len(raw),
-        "dedupe": dedupe_stats,
-        "after_dedupe": len(items),
-        "scored": len(scored),
-        "kept": len(kept),
-        "per_news_type": stats["per_news_type"],
-        "per_signal": stats["per_signal"],
-        "llm_calls": provider.calls,
-        "duration_s": duration,
-        "errors": all_errors,
-        "quiet_week": quiet,
-    }
-    path = publish_step.publish(opts.data_dir, profile, doc, run_record)
-    if opts.commit:
-        publish_step.commit(opts.data_dir, profile_id, window.label)
-    log.info("=== done %s: scanned=%d after_dedupe=%d scored=%d kept=%d llm_calls=%d duration=%.1fs ===",
-             window.label, len(raw), len(items), len(scored), len(kept), provider.calls, duration)
-    return {"path": str(path), **run_record}
+        state["stage"] = "publish"                                                 # 8 PUBLISH
+        duration = round(time.monotonic() - t0, 1)
+        record = {
+            **base_record(profile_id, window, opts, "published", backfilled),
+            "generated_at": now,
+            "provider": provider.name,
+            "models": models,
+            "models_used": sorted(provider.models_used),
+            "items_per_source": per_source,
+            "collected": len(raw),
+            "dedupe": dedupe_stats,
+            "after_dedupe": len(items),
+            "scored": len(scored),
+            "kept": len(kept),
+            "per_news_type": stats["per_news_type"],
+            "per_signal": stats["per_signal"],
+            "llm_calls": provider.calls,
+            "duration_s": duration,
+            "errors": state["errors"],
+            "trimmed": trimmed,
+            "quiet_week": quiet,
+        }
+        publish_step.publish(opts.data_dir, profile, doc, record)
+        if opts.commit:
+            publish_step.commit(opts.data_dir, f"chore: digest {profile_id} {window.label}")
+        log.info("=== done %s: scanned=%d after_dedupe=%d scored=%d kept=%d llm_calls=%d duration=%.1fs ===",
+                 window.label, len(raw), len(items), len(scored), len(kept), provider.calls, duration)
+        return record
+    except Exception as exc:
+        record = {
+            **base_record(profile_id, window, opts, "failed", backfilled),
+            "stage": state["stage"],
+            "error": f"{type(exc).__name__}: {str(exc)[:500]}",
+            "items_per_source": state["per_source"],
+            "llm_calls": provider.calls if provider else 0,
+            "duration_s": round(time.monotonic() - t0, 1),
+            "errors": state["errors"],
+        }
+        log.error("RUN FAILED in step %s, nothing was published for %s: %s", state["stage"], window.label, exc)
+        _finish(opts, record, f"chore: run-log {profile_id} {window.label} (failed)")
+        raise RunFailed(record, exc) from exc

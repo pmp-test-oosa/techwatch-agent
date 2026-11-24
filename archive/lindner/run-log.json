@@ -269,7 +269,7 @@
       "duration_s": 195.6,
       "errors": [],
       "quiet_week": false,
-      "note": "Window Tue 20 - Mon 26 Oct was mislabelled KW 44; digest withdrawn, KW 43 regenerated."
+      "note": "Manual run on Tue 27 Oct covered Tue 20 - Mon 26 Oct and was mislabelled KW 44; replaced by the regular KW 44 run on 2 Nov. KW 43 was never published."
     },
     {
       "profile": "lindner",

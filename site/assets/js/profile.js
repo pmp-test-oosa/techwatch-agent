@@ -1,4 +1,4 @@
-/* Client profile: description, competitors, watch fields with keywords. */
+/* Profile: audience, watch fields with keywords, companies to watch, sources. */
 (async function () {
   "use strict";
   const { esc } = TW;
@@ -20,19 +20,22 @@
       <p class="kwlabel">Keywords · Deutsch</p>
       <div class="kws" lang="de">${(f.keywords_de || []).map((k) => `<span class="kw">${esc(k)}</span>`).join("")}</div>
     </article>`).join("");
-  const eco = Object.entries(p.ecosystem || {}).map(([k, v]) =>
-    `<div><dt>${esc(k.replace(/_/g, " "))}</dt><dd>${esc((v || []).join(", "))}</dd></div>`).join("");
+  const SOURCES = [
+    ["arXiv", "research preprints, searched per watch field by submission date"],
+    ["Google News", "English and German news search per watch field, with date operators"],
+    ["idw – Informationsdienst Wissenschaft", "press releases of German universities and institutes (RSS)"],
+    ["MM MaschinenMarkt", "German machine-building and production news (RSS)"],
+    ["Industry of Things", "German Industrial IoT and Industrie 4.0 news (RSS)"],
+  ].map(([n, d]) => `<div><dt>${esc(n)}</dt><dd>${esc(d)}</dd></div>`).join("");
 
   main.innerHTML = `
     <section class="wrap page-head">
-      <p class="kicker">Client profile</p>
+      <p class="kicker">Profile</p>
       <h1>${esc(p.name)}</h1>
-      ${p.fictional ? `<p class="notice">${TW.icon("info")}<span><strong>Fictional demo client.</strong> This company does not exist. The profile shows how TechWatch is configured for one Mittelstand manufacturer; the news it collects is real.</span></p>` : ""}
       <p class="lede">${esc(p.description)}</p>
       <dl class="facts">
-        ${p.employees ? `<div class="fact"><dt>Employees</dt><dd>${esc(p.employees)}</dd></div>` : ""}
-        ${p.industry ? `<div class="fact"><dt>Business</dt><dd>${esc(p.industry)}</dd></div>` : ""}
-        ${p.location ? `<div class="fact"><dt>Location</dt><dd>${esc(p.location)}</dd></div>` : ""}
+        ${p.industry ? `<div class="fact"><dt>Scope</dt><dd>${esc(p.industry)}</dd></div>` : ""}
+        ${p.audience ? `<div class="fact"><dt>Audience</dt><dd>${esc(p.audience)}</dd></div>` : ""}
       </dl>
     </section>
     <section class="wrap section" aria-labelledby="wf-h">
@@ -42,12 +45,12 @@
     </section>
     <section class="wrap section">
       <div class="two-col">
-        <div class="panel"><p class="kicker">Competitors to watch</p><h2>Named competitors</h2>
-          <p class="muted small">Items about these companies are typed as "Competitor moves".</p>
-          <div class="namelist">${(p.competitors || []).map((c) => `<span>${esc(c)}</span>`).join("")}</div></div>
-        <div class="panel"><p class="kicker">Ecosystem</p><h2>Customers and suppliers</h2>
-          <p class="muted small">Context for scoring. These are not treated as competitors.</p>
-          <dl class="eco">${eco}</dl></div>
+        <div class="panel"><p class="kicker">Companies to watch</p><h2>Vendors and technology leaders</h2>
+          <p class="muted small">Moves by these companies are typed as "Company moves" and ranked higher before scoring.</p>
+          <div class="namelist">${(p.companies_to_watch || []).map((c) => `<span>${esc(c)}</span>`).join("")}</div></div>
+        <div class="panel"><p class="kicker">Sources</p><h2>Where the items come from</h2>
+          <p class="muted small">Free sources without API keys. Every item links to its original.</p>
+          <dl class="eco">${SOURCES}</dl></div>
       </div>
     </section>`;
 })();

@@ -4,7 +4,7 @@
 
   const NEWS_TYPES = {
     research: "Research",
-    competitor: "Competitor moves",
+    competitor: "Company moves",
     industry: "Industry & market",
     funding: "Funding & M&A",
     regulation: "Regulation & standards",
@@ -123,7 +123,80 @@
     return page + (q ? "?" + q : "");
   }
 
-  const state = { index: null, profileId: null, profileEntry: null, profile: null, multiProfile: false };
+  const state = { index: null, profileId: null, profileEntry: null, profile: null, multiProfile: false, runs: [] };
+
+  // ----- schedule and status (mirrors .github/workflows/techwatch.yml and techwatch/windows.py) -----
+  const SCHEDULE_UTC = [[1, 5, 17], [2, 5, 17]]; // [JS weekday (Mon=1), hour, minute]: main run, fallback
+  const DAY = 86400000;
+  function isoWeekLabel(d) { // d: Date (UTC)
+    const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+    const dow = t.getUTCDay() || 7;
+    t.setUTCDate(t.getUTCDate() + 4 - dow);
+    const year = t.getUTCFullYear();
+    const week = Math.ceil(((t - Date.UTC(year, 0, 1)) / DAY + 1) / 7);
+    return `${year}-W${String(week).padStart(2, "0")}`;
+  }
+  function mondayOf(now) {
+    const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+    return new Date(t - ((t.getUTCDay() + 6) % 7) * DAY);
+  }
+  function expectedWeek(now) { // last completed ISO week
+    return isoWeekLabel(new Date(mondayOf(now) - DAY));
+  }
+  function nextRuns(now, weeks) {
+    const out = [];
+    for (let i = 0; i < 15 && out.length < 3; i++) {
+      const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + i));
+      for (const [wd, h, m] of SCHEDULE_UTC) {
+        const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), h, m));
+        if (d.getUTCDay() !== wd || t <= now) continue;
+        const fallback = wd !== SCHEDULE_UTC[0][0];
+        // the fallback only works when the week it covers is still missing
+        if (fallback && weeks.some((w) => w.week === expectedWeek(t))) continue;
+        out.push({ at: t, fallback });
+      }
+    }
+    return out;
+  }
+  function computeStatus(now) {
+    const weeks = (state.profileEntry && state.profileEntry.weeks) || [];
+    const mine = state.runs.filter((r) => !state.profileId || r.profile === state.profileId);
+    const real = mine.filter((r) => !r.dry_run);
+    const runs = real.length ? real : mine; // a pure dry-run preview has no real runs
+    const lastAttempt = runs.find((r) => r.status === "published" || r.status === "failed") || null;
+    const lastSuccess = runs.find((r) => r.status === "published") || null;
+    const expected = expectedWeek(now);
+    const hasExpected = weeks.some((w) => w.week === expected);
+    const newest = weeks.reduce((m, w) => (!m || w.generated_at > m ? w.generated_at : m), null);
+    const graceEnd = new Date(+mondayOf(now) + DAY + 9 * 3600000); // Tuesday 09:00 UTC
+    let level = "ok", text = "Up to date";
+    if (lastAttempt && lastAttempt.status === "failed") {
+      level = "error";
+      text = `Last run failed (${fmtDateTime(lastAttempt.generated_at)})`;
+    } else if ((!hasExpected && now > graceEnd) || (newest && now - new Date(newest) > 8 * DAY)) {
+      level = "delayed";
+      text = `Delayed: KW ${kw(expected).n} not published yet`;
+    } else if (!hasExpected) {
+      text = `KW ${kw(expected).n} due with the next run`;
+    }
+    return { level, text, lastSuccess, expected, next: nextRuns(now, weeks) };
+  }
+  const STATUS_LABEL = { ok: "OK", delayed: "Delayed", error: "Error" };
+  function statusChip(level) {
+    return `<span class="status status--${level}"><span class="status__dot" aria-hidden="true"></span>${STATUS_LABEL[level]}</span>`;
+  }
+  function renderStatus() {
+    const el = document.getElementById("statusbar");
+    if (!el) return;
+    const s = computeStatus(new Date());
+    const next = s.next[0];
+    el.innerHTML = `
+      <span class="statusbar__item" title="${esc(s.text)}">${statusChip(s.level)}<span class="statusbar__text">${esc(s.text)}</span></span>
+      <span class="statusbar__item"><span class="muted">Last successful run</span>
+        <strong>${s.lastSuccess ? esc(fmtDateTime(s.lastSuccess.generated_at)) : "none yet"}</strong></span>
+      <span class="statusbar__item"><span class="muted">Next scheduled run</span>
+        <strong>${next ? esc(fmtDateTime(next.at.toISOString())) : "–"}</strong>${next && next.fallback ? '<span class="muted"> (fallback)</span>' : ""}</span>`;
+  }
 
   const PAGES = [
     ["digest", "index.html", "Briefing"],
@@ -141,12 +214,11 @@
     let client = "";
     if (entry) {
       const name = state.multiProfile
-        ? `<label class="visually-hidden" for="profile-select">Client profile</label>
+        ? `<label class="visually-hidden" for="profile-select">Profile</label>
            <select id="profile-select">${state.index.profiles.map((p) =>
              `<option value="${esc(p.id)}"${p.id === entry.id ? " selected" : ""}>${esc(p.name)}</option>`).join("")}</select>`
         : `<span class="client__name">${esc(entry.name)}</span>`;
-      client = `<div class="client"><span class="client__label">Client</span>${name}
-        ${entry.fictional ? '<span class="pill" title="This company does not exist. It is a demo profile.">fictional demo</span>' : ""}</div>`;
+      client = `<div class="client"><span class="client__label">Profile</span>${name}</div>`;
     }
     el.innerHTML = `
       <div class="topbar"><div class="wrap topbar__inner">
@@ -156,7 +228,8 @@
           <button class="icon-btn theme-toggle" type="button">${icon("sun", "sun")}${icon("moon", "moon")}</button>
         </div>
       </div></div>
-      <div class="subbar"><div class="wrap subbar__inner">${client}<div id="week-switch-slot"></div></div></div>`;
+      <div class="subbar"><div class="wrap subbar__inner">${client}<div id="week-switch-slot"></div></div></div>
+      <div class="statusbar" aria-label="Pipeline status"><div class="wrap statusbar__inner" id="statusbar" aria-live="polite"></div></div>`;
     bindThemeToggle(el.querySelector(".theme-toggle"));
     const sel = el.querySelector("#profile-select");
     if (sel) sel.addEventListener("change", () => { location.href = `${location.pathname}?profile=${encodeURIComponent(sel.value)}`; });
@@ -168,7 +241,7 @@
     el.innerHTML = `<div class="wrap footer__inner">
         <p class="footer__rule">The AI reads and scores. Code decides what gets published, and every item links to its original source.</p>
         <div class="footer__meta">
-          <p>Built by Philip Maurice · fictional demo client · agentic build for AI in Action · runs at zero cost</p>
+          <p>Built by Philip Maurice · agentic build for AI in Action · runs autonomously every week at zero cost</p>
           <p class="footer__links"><a href="${esc(link("how.html"))}">How it works</a><a href="${esc(link("runs.html"))}">Run log</a><a href="${esc(link("archive.html"))}">Archive</a></p>
         </div></div>`;
   }
@@ -190,6 +263,8 @@
     }
     renderMasthead(page);
     renderFooter();
+    try { state.runs = (await json("data/run-log.json")).runs || []; } catch (e) { state.runs = []; }
+    renderStatus();
     return state;
   }
 
@@ -217,5 +292,6 @@
   }
 
   window.TW = { NEWS_TYPES, SIGNALS, icon, esc, safeUrl, fmtDate, fmtRange, fmtDateTime, kw, json, params, link, init, state,
+    computeStatus, statusChip,
     fieldName, relBar, badge, typeLabel, fatal, store };
 })();

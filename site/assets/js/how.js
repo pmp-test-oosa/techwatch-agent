@@ -6,22 +6,22 @@
   const main = document.getElementById("main");
 
   const STEPS = [
-    { t: "Load", ai: false, d: ["Profile: watch fields,", "keywords EN + DE, competitors"],
-      long: "Reads the client profile: four watch fields with English and German keywords, the competitors to watch and a short business description." },
-    { t: "Collect", ai: false, d: ["arXiv + Google News RSS,", "date window in the query"],
-      long: "Queries the arXiv API (by submission date) and Google News RSS (with after:/before: operators) for every watch field. Items outside the week are dropped. A failing source is logged and never stops the run." },
+    { t: "Load", ai: false, d: ["Profile: watch fields,", "keywords EN + DE, companies"],
+      long: "Reads the profile: four watch fields with English and German keywords, the companies to watch and a description of the audience." },
+    { t: "Collect", ai: false, d: ["arXiv, Google News, idw,", "MM, Industry of Things"],
+      long: "Queries the arXiv API (by submission date) and Google News RSS (with after:/before: operators) per watch field, and reads three German feeds (idw-online, MM MaschinenMarkt, Industry of Things), assigning their items to fields by keyword. Items outside the week are dropped. A failing source is logged and never stops the run." },
     { t: "Normalize + dedupe", ai: false, d: ["One schema, spam filter,", "dedupe vs. earlier weeks"],
       long: "Turns every item into one schema, removes press-release spam, duplicates and anything already published in an earlier week. Plain code, no AI." },
     { t: "Score", ai: true, d: ["Relevance 0–10, signal, type,", "reason · batches of 15"],
-      long: "Claude Haiku rates each item for this client: relevance 0–10, threat / opportunity / watch, news type from a fixed list, and one client-specific sentence. No tools, JSON schema only." },
+      long: "Claude Haiku rates each item for manufacturing SMEs: relevance 0–10, threat / opportunity / watch, news type from a fixed list, and one concrete sentence on what it means. No tools, JSON schema only, 3 attempts with backoff." },
     { t: "Filter", ai: false, d: ["≥ 7/10 · max 20 · 1 per field", "max 6 per news type"],
       long: "Code decides what is kept: relevance 7 or higher, at most 20 items, at least one per watch field if available, at most 6 of the same news type." },
     { t: "Digest", ai: true, d: ["Headline, summary, actions,", "cites kept items by id only"],
-      long: "Claude Sonnet writes the headline (max 12 words), up to 5 summary bullets, up to 3 actions and picks the top signal. It may only reference kept items by their id." },
-    { t: "Validate", ai: false, d: ["ids, links, dates checked:", "any violation = no publish"],
-      long: "A script checks that every referenced id exists, every link came from a collector and every date lies inside the week. One violation fails the run and nothing is published." },
-    { t: "Publish", ai: false, d: ["JSON → /site/data, commit,", "push → Netlify redeploys"],
-      long: "Writes the week's JSON, the archive index and the run log, commits and pushes. Netlify redeploys the static site from the repository." },
+      long: "Claude Sonnet writes the headline (max 12 words), up to 5 summary bullets, up to 3 actions and picks the top signal. It may only reference kept items by their id; code trims lists that are too long." },
+    { t: "Validate", ai: false, d: ["schema, ids, links, dates:", "any violation = no publish"],
+      long: "The whole document is checked against a strict schema (every length, count and value), every referenced id must exist, every link must come from a collector and every date must lie inside the week. One violation fails the run and nothing is published." },
+    { t: "Publish", ai: false, d: ["JSON → /site/data, commit,", "push → GitHub Pages"],
+      long: "Writes the week's JSON, the archive index and the run log, commits and pushes, then deploys the static site to GitHub Pages." },
   ];
 
   const who = (s) => (s.ai ? "AI" : "CODE");
@@ -67,7 +67,7 @@
     <section class="wrap page-head">
       <p class="kicker">How it works</p>
       <h1>A weekly agent with a strict division of labour</h1>
-      <p class="lede">Every Monday at 06:00 UTC a GitHub Actions job runs eight steps for the past week. Two of them use an LLM; six are plain, deterministic code. The result is a static JSON file that this website reads.</p>
+      <p class="lede">Every Monday at 05:17 UTC a GitHub Actions job runs eight steps for the past calendar week, without anyone starting or approving it. Two steps use an LLM; six are plain, deterministic code. The result is a static JSON file that this website reads.</p>
       <div class="rule"><p class="rule__label">Core design rule</p>
         <blockquote>The AI reads and scores. Code decides what gets published, and every item links to its original source.</blockquote></div>
     </section>
@@ -86,19 +86,21 @@
     <section class="wrap section" aria-labelledby="infra-h">
       <div class="section-head"><div><p class="kicker">Infrastructure</p><h2 id="infra-h" class="section-title">Zero cost, no servers, no secrets in the site</h2></div></div>
       <div class="flow" aria-label="Infrastructure flow">
-        <div class="flow__node"><b>GitHub Actions</b><span>weekly cron + manual run</span></div><span class="flow__arrow">${icon("right")}</span>
+        <div class="flow__node"><b>GitHub Actions</b><span>Mon 05:17 UTC + Tue fallback</span></div><span class="flow__arrow">${icon("right")}</span>
         <div class="flow__node"><b>Python pipeline</b><span>8 steps, Python 3.12</span></div><span class="flow__arrow">${icon("right")}</span>
         <div class="flow__node"><b>Claude Code CLI</b><span>subscription token, headless</span></div><span class="flow__arrow">${icon("right")}</span>
         <div class="flow__node"><b>/site/data/*.json</b><span>commit + push</span></div><span class="flow__arrow">${icon("right")}</span>
-        <div class="flow__node"><b>Netlify</b><span>static site, free plan</span></div>
+        <div class="flow__node"><b>GitHub Pages</b><span>static site, free</span></div>
       </div>
       <ul class="guard">
-        <li>${icon("coin")}<div><b>Zero cost</b><span>Free sources without API keys, free GitHub Actions minutes, free Netlify hosting, and the LLM runs on an existing Claude subscription.</span></div></li>
+        <li>${icon("clock")}<div><b>Autonomous</b><span>Runs on schedule with no human in the loop. A Tuesday fallback retries a missing week, the next Monday catches up a week that is still missing, and a second run for the same week does nothing.</span></div></li>
+        <li>${icon("info")}<div><b>Self-monitoring</b><span>A failed run opens a GitHub issue with a log excerpt and the site shows the status. A daily watchdog flags a digest older than 8 days and a Claude token that expires within 30 days, and closes those issues when resolved.</span></div></li>
+        <li>${icon("coin")}<div><b>Zero cost</b><span>Free sources without API keys, free GitHub Actions minutes, free GitHub Pages hosting, and the LLM runs on an existing Claude subscription.</span></div></li>
         <li>${icon("lock")}<div><b>One secret, never in the site</b><span>The only secret is the Claude OAuth token in GitHub Actions secrets. The website is static HTML and JSON with no server code.</span></div></li>
         <li>${icon("shield")}<div><b>Fail closed</b><span>If scoring, the digest or validation fails after retries, the run stops and nothing is published.</span></div></li>
         <li>${icon("link")}<div><b>Traceable</b><span>Every item links to its original source, and the run log shows the real counts of every run.</span></div></li>
         <li>${icon("plug")}<div><b>Pluggable</b><span>Sources and the LLM provider are plugins. A deterministic mock provider runs dry runs and tests.</span></div></li>
-        <li>${icon("clock")}<div><b>Budgeted</b><span>At most 100 items per week, batches of 15, about 8 LLM calls per run, 2 retries with backoff.</span></div></li>
+        <li>${icon("plug")}<div><b>Budgeted</b><span>At most 100 items per week, batches of 15, about 8 LLM calls per run, 3 attempts per call with backoff.</span></div></li>
       </ul>
     </section>`;
 })();

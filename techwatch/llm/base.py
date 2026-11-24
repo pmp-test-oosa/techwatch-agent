@@ -20,7 +20,7 @@ class Provider:
     name = "base"
     score_model = "-"
     digest_model = "-"
-    backoff_s = (5, 20)
+    backoff_s = (10, 30)
 
     def __init__(self, max_calls: int):
         self.max_calls = max_calls

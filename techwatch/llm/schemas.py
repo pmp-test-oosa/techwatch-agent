@@ -55,6 +55,16 @@ DIGEST_SCHEMA = {
 }
 
 
+def _lenient(schema: dict) -> dict:
+    """Copy of the schema without list-length limits: code trims overlong lists instead of
+    spending an LLM retry on them (see digest.trim)."""
+    out = {k: (_lenient(v) if isinstance(v, dict) else v) for k, v in schema.items() if k != "maxItems"}
+    return out
+
+
+DIGEST_SCHEMA_LENIENT = _lenient(DIGEST_SCHEMA)
+
+
 def check_scores(result: dict, items: list[dict]) -> list[dict]:
     jsonschema.validate(result, SCORE_SCHEMA)
     want = {it["id"] for it in items}
@@ -67,7 +77,7 @@ def check_scores(result: dict, items: list[dict]) -> list[dict]:
 
 
 def check_digest(result: dict, items: list[dict]) -> dict:
-    jsonschema.validate(result, DIGEST_SCHEMA)
+    jsonschema.validate(result, DIGEST_SCHEMA_LENIENT)
     ids = {it["id"] for it in items}
     words = len(result["headline"].split())
     if words > HEADLINE_MAX_WORDS:

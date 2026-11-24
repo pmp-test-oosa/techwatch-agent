@@ -1,0 +1,65 @@
+name: TechWatch watchdog
+
+# Daily self-check without LLM calls: keeps the schedules alive, flags a stale digest and an
+# expiring Claude token as GitHub issues, and closes those issues again when resolved.
+on:
+  schedule:
+    - cron: "47 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: write    # keepalive: re-enable the scheduled workflows
+
+concurrency:
+  group: techwatch-watchdog
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      STALE_ISSUE: "TechWatch digest is stale"
+      TOKEN_ISSUE: "TechWatch: Claude token needs attention"
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # GitHub disables scheduled workflows in public repos after 60 days without repository
+      # activity. The weekly commits already count as activity; re-enabling is a second guard.
+      - name: Keepalive (re-enable scheduled workflows)
+        run: |
+          for wf in techwatch.yml watchdog.yml; do
+            gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/${wf}/enable" \
+              || echo "::warning::could not re-enable ${wf}"
+          done
+
+      - name: Check digest age and token expiry
+        env:
+          TOKEN_CREATED_AT: ${{ vars.TOKEN_CREATED_AT }}
+        run: python -m techwatch watchdog --out findings
+
+      - name: Open, update or close issues
+        run: |
+          if [ -f findings/stale.md ]; then
+            bash .github/scripts/upsert-issue.sh "$STALE_ISSUE" findings/stale.md
+          else
+            bash .github/scripts/close-issue.sh "$STALE_ISSUE" "Resolved: a fresh digest has been published."
+          fi
+          if [ -f findings/token.md ]; then
+            bash .github/scripts/upsert-issue.sh "$TOKEN_ISSUE" findings/token.md
+          else
+            bash .github/scripts/close-issue.sh "$TOKEN_ISSUE" "Resolved: TOKEN_CREATED_AT is set and the token is valid for more than 30 days."
+          fi

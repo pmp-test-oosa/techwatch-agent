@@ -1,20 +1,29 @@
 name: TechWatch weekly digest
 
-# Weekly cron + manual run. There is deliberately NO pull_request trigger:
-# the Claude token must never be exposed to workflows started from forks.
+# Fully autonomous: runs on schedule, needs no input, no approval and no environment protection.
+# There is deliberately NO pull_request trigger: the Claude token must never reach fork PRs.
 on:
   schedule:
-    - cron: "0 6 * * 1"   # Monday 06:00 UTC, covers the previous ISO week (Mon-Sun)
-  workflow_dispatch:
+    - cron: "17 5 * * 1"   # Monday 05:17 UTC: main run for the last completed ISO week
+    - cron: "17 5 * * 2"   # Tuesday 05:17 UTC: fallback, works only if the week is still missing
+  workflow_dispatch:       # test option only
     inputs:
       backfill_weeks:
-        description: "Also generate the N previous weeks (0 = only the last 7 days, max 8)"
+        description: "Also generate the N previous weeks if they are missing (0-8)"
         required: false
         default: "0"
         type: string
+      force:
+        description: "Regenerate weeks that already have a digest"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
-  contents: write   # commit and push /site/data
+  contents: write   # commit and push /site/data (digests and run-log.json)
+  issues: write     # open / update / close the "TechWatch run failed" issue
+  pages: write      # deploy the site to GitHub Pages
+  id-token: write   # required by actions/deploy-pages
 
 concurrency:
   group: techwatch-digest
@@ -28,6 +37,7 @@ jobs:
       LLM_PROVIDER: claude_subscription
       DISABLE_AUTOUPDATER: "1"
       PYTHONUNBUFFERED: "1"
+      FAILURE_ISSUE: "TechWatch run failed"
     steps:
       - name: Check out
         uses: actions/checkout@v4
@@ -40,6 +50,11 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt pytest
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Offline tests (mock LLM, fixtures, no secrets)
         run: python -m pytest -q
@@ -59,22 +74,60 @@ jobs:
             exit 1
           fi
 
-      - name: Configure git identity
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
       - name: Run pipeline, commit and push
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           BACKFILL_WEEKS: ${{ github.event.inputs.backfill_weeks || '0' }}
+          FORCE: ${{ github.event.inputs.force || 'false' }}
+          TW_SCHEDULE: ${{ github.event.schedule }}
         run: |
+          set -o pipefail
           if ! [[ "$BACKFILL_WEEKS" =~ ^[0-9]+$ ]] || [ "$BACKFILL_WEEKS" -gt 8 ]; then
             echo "::error::backfill_weeks must be a number from 0 to 8"
             exit 1
           fi
+          extra=()
+          if [ "$FORCE" = "true" ]; then extra+=(--force); fi
           if [ "$BACKFILL_WEEKS" -gt 0 ]; then
-            python -m techwatch backfill --profile all --weeks "$BACKFILL_WEEKS" --push
+            cmd=(python -m techwatch backfill --profile all --weeks "$BACKFILL_WEEKS")
           else
-            python -m techwatch run --profile all --push
+            # catch-up: also regenerate the previous week if it is missing (e.g. Monday and Tuesday failed)
+            cmd=(python -m techwatch run --profile all --catch-up 1)
           fi
+          "${cmd[@]}" "${extra[@]}" --push 2>&1 | tee pipeline.log
+
+      - name: Record failure in run log
+        if: failure()
+        env:
+          TW_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          python -m techwatch record-failure --push \
+            --reason "Workflow step failed before or outside the pipeline (see the run link)." || true
+
+      - name: Open or update failure issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TW_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          python -m techwatch failure-report --log pipeline.log --out issue.md
+          bash .github/scripts/upsert-issue.sh "$FAILURE_ISSUE" issue.md
+
+      - name: Close failure issue after a successful run
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash .github/scripts/close-issue.sh "$FAILURE_ISSUE" \
+            "Resolved: run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} succeeded."
+
+  # Deploy also after a failure, so the status badge on the site shows it.
+  pages:
+    needs: digest
+    if: always()
+    uses: ./.github/workflows/pages.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

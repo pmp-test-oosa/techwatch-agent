@@ -4,17 +4,17 @@ from __future__ import annotations
 import hashlib
 import re
 
-from ..profile import field_keywords
+from ..profile import company_hits, keyword_hits
 from .base import Provider
 
 RULES = [
     ("funding", re.compile(r"fund|invest|acqui|merger|startup|raises|series [a-c]|stake|übernahme|finanzierung", re.I)),
     ("regulation", re.compile(r"cbam|regulation|directive|\beu\b|standard|norm\b|din |iso |reporting|verordnung|richtlinie", re.I)),
-    ("events", re.compile(r"conference|fair|euroguss|gifa|call for papers|webinar|summit|messe|tagung|kongress", re.I)),
+    ("events", re.compile(r"conference|fair|trade show|call for papers|webinar|summit|messe|tagung|kongress", re.I)),
     ("research", re.compile(r"paper|study|researchers|preprint|universit|fraunhofer|institute", re.I)),
 ]
-THREAT = re.compile(r"in-house|insourc|replace|cheaper|price|tariff|shortage|cuts|closes|loses|wins order|undercut|eigenfertigung", re.I)
-OPPORTUNITY = re.compile(r"grant|fund|partner|open|new alloy|low-cost|saves|reduces scrap|demand|tender|förder|call for", re.I)
+THREAT = re.compile(r"obligation|deadline|fine|penalt|shortage|cuts|closes|tariff|pflicht|frist|bußgeld", re.I)
+OPPORTUNITY = re.compile(r"grant|fund|partner|open|low-cost|saves|reduces|affordable|förder|call for|kostenlos", re.I)
 
 
 def _h(text: str) -> int:
@@ -34,9 +34,8 @@ class MockProvider(Provider):
         for it in items:
             field = fields[it["watch_field"]]
             text = f"{it['title']} {it['snippet']}"
-            low = text.lower()
-            hits = sum(1 for k in field_keywords(field) if k in low)
-            comp = [c for c in profile["competitors"] if c.lower() in low]
+            hits = keyword_hits(text, field)
+            comp = company_hits(text, profile)
             relevance = max(0, min(10, 2 + hits + 2 * len(comp) + _h(it["id"]) % 4))
             news_type = "competitor" if comp else next((t for t, rx in RULES if rx.search(text)), "industry")
             if THREAT.search(text) or comp:
@@ -52,8 +51,7 @@ class MockProvider(Provider):
                 "signal": signal,
                 "news_type": news_type,
                 "story": " ".join(it["title"].split()[:5]),
-                "reason": f"Mock score: {hits} keyword match(es) for {field['name']}{who}, "
-                          f"relevant to Lindner's structural-casting business.",
+                "reason": f"Mock score: {hits} keyword match(es) for {field['name']}{who}.",
             })
         return {"scores": out}
 
@@ -69,11 +67,11 @@ class MockProvider(Provider):
                 {"text": f"{it['title']}: {it['reason']}", "item_ids": [it["id"]]} for it in items[:5]
             ],
             "actions": [
-                {"text": f"Review the {threats} threat item(s) with the sales lead.",
+                {"text": f"Review the {threats} threat item(s) with the affected clients.",
                  "item_ids": [i["id"] for i in items if i["signal"] == "threat"][:2]},
                 {"text": f"Check the {opps} opportunity item(s) for funding or partner fit.",
                  "item_ids": [i["id"] for i in items if i["signal"] == "opportunity"][:2]},
-                {"text": "Share the top signal with the managing director.", "item_ids": [top["id"]]},
+                {"text": "Share the top signal in the weekly team meeting.", "item_ids": [top["id"]]},
             ],
             "top_signal": top["id"],
         }

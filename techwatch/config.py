@@ -15,7 +15,7 @@ DRY_RUN_DIR = Path(tempfile.gettempdir()) / "techwatch-dryrun" / "data"
 # Dimension A: what kind of information an item is (fixed list, the LLM may only pick from it).
 NEWS_TYPES = {
     "research": "Research",
-    "competitor": "Competitor moves",
+    "competitor": "Company moves",
     "industry": "Industry & market",
     "funding": "Funding & M&A",
     "regulation": "Regulation & standards",
@@ -28,6 +28,8 @@ SIGNALS = ("threat", "opportunity", "watch")
 MAX_SCORED_ITEMS = 100      # cap per window, before scoring
 BATCH_SIZE = 15             # items per scoring call
 MAX_LLM_CALLS = 10          # planned calls per weekly run (scoring batches + 1 digest)
+# (weekday, hour, minute) UTC: Monday main run, Tuesday fallback (works only if the week is missing)
+SCHEDULE_UTC = ((0, 5, 17), (1, 5, 17))
 LLM_RETRIES = 2             # retries per call, with backoff
 LLM_TIMEOUT_S = 300
 MIN_RELEVANCE = 7
