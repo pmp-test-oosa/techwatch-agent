@@ -4,6 +4,25 @@
       "id": "tmg-radar",
       "weeks": [
         {
+          "week": "2026-W47",
+          "file": "digests/tmg-radar/2026-W47.json",
+          "window": {
+            "start": "2026-11-16",
+            "end": "2026-11-22"
+          },
+          "headline": "Cyber Resilience Act takes shape; cobot payback cases get concrete",
+          "kept": 9,
+          "scanned": 261,
+          "signals": {
+            "threat": 2,
+            "opportunity": 6,
+            "watch": 1
+          },
+          "backfilled": false,
+          "quiet_week": false,
+          "generated_at": "2026-11-24T02:21:24+00:00"
+        },
+        {
           "week": "2026-W46",
           "file": "digests/tmg-radar/2026-W46.json",
           "window": {
@@ -46,5 +65,5 @@
       "fictional": false
     }
   ],
-  "updated_at": "2026-11-24T02:15:46+00:00"
+  "updated_at": "2026-11-24T02:21:24+00:00"
 }

@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "profile": "tmg-radar",
+  "week": "2026-W47",
+  "week_number": 47,
+  "window": {
+    "start": "2026-11-16",
+    "end": "2026-11-22"
+  },
+  "generated_at": "2026-11-24T02:21:24+00:00",
+  "backfilled": false,
+  "quiet_week": false,
+  "dry_run": false,
+  "provider": "claude_subscription",
+  "models": {
+    "score": "haiku",
+    "digest": "sonnet"
+  },
+  "headline": "Cyber Resilience Act takes shape; cobot payback cases get concrete",
+  "summary": [
+    {
+      "text": "Germany's Bundesrat cleared the national Cyber Resilience Act implementing law, so makers of connected products now face concrete national obligations for cybersecurity and vulnerability reporting.",
+      "item_ids": [
+        "gn-c35e55848c"
+      ]
+    },
+    {
+      "text": "The first European standard supporting the CRA is published, giving manufacturers a route to presumed conformity, while PwC's overview lays out requirements and timeline for planning.",
+      "item_ids": [
+        "gn-a933f0d6fc",
+        "gn-2771520c59"
+      ]
+    },
+    {
+      "text": "CBAM rules allow deduction of carbon prices paid in third countries, which can lower costs for importers but only with documented evidence.",
+      "item_ids": [
+        "gn-05ee3b7e12"
+      ]
+    },
+    {
+      "text": "An Atlas Copco cobot case reports 10.5 months payback, and ABB's palletizing template cuts cobot palletizing deployment time by up to 80%, easing automation against labour shortage.",
+      "item_ids": [
+        "gn-d1cf232080",
+        "gn-5cd7bfb85f"
+      ]
+    },
+    {
+      "text": "Factory AI that tunes machines works best with limits on what it can change, and Siemens links Industrial AI with additive manufacturing; both point to bounded, practical AI entry points.",
+      "item_ids": [
+        "gn-af4fc36e1e",
+        "gn-41d9caa665"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "text": "Product and engineering heads: inventory products with digital elements and assign owners for CRA conformity and vulnerability handling; consultants should check the new harmonised standard against that list.",
+      "item_ids": [
+        "gn-c35e55848c",
+        "gn-a933f0d6fc",
+        "gn-2771520c59"
+      ]
+    },
+    {
+      "text": "Purchasing and finance: check whether CBAM-covered imports qualify for third-country carbon price deduction and start collecting the required documentary evidence from suppliers.",
+      "item_ids": [
+        "gn-05ee3b7e12"
+      ]
+    },
+    {
+      "text": "Production managers: use the 10.5-month payback and ABB's palletizing template as benchmarks to scope one cobot palletizing pilot; consider the Chemnitz workshop for peer exchange.",
+      "item_ids": [
+        "gn-d1cf232080",
+        "gn-5cd7bfb85f",
+        "gn-207d257e12"
+      ]
+    }
+  ],
+  "top_signal": "gn-c35e55848c",
+  "stats": {
+    "scanned": 261,
+    "after_dedupe": 247,
+    "scored": 100,
+    "kept": 9,
+    "threats": 2,
+    "opportunities": 6,
+    "watch": 1,
+    "sources": 165,
+    "per_source": {
+      "arxiv": 19,
+      "google_news": 238,
+      "idw": 0,
+      "maschinenmarkt": 3,
+      "industry_of_things": 1
+    },
+    "per_news_type": {
+      "research": 1,
+      "competitor": 2,
+      "industry": 1,
+      "funding": 0,
+      "regulation": 4,
+      "events": 1
+    },
+    "per_signal": {
+      "threat": 2,
+      "opportunity": 6,
+      "watch": 1
+    },
+    "per_watch_field": {
+      "ai-production": 1,
+      "iiot-edge": 1,
+      "robotics": 3,
+      "regulation": 4
+    }
+  },
+  "items": [
+    {
+      "id": "gn-c35e55848c",
+      "source": "google_news",
+      "title": "Cyber Resilience Act: Bundesrat beschließt Durchführungsgesetz",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdzVsV0R4X1dvWXdwTzdaZHFLcjFmcHoyc2NrczRQTGZ5U25vNldOb0xqU0RteHVBdEkwXzFBQ0xqU2R6VlZxemhZZHkxdnU1RG94dVFfZkhTcEYyOWYwR2F5R3NvLXlsckQ4TjY1MjNXNHBKQ3ZEdkpaVjd6X2tCeGJkMEhoTVE0MHBRWjdTNUpwb3Fnd0x6Vg",
+      "date": "2026-11-20",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "threat",
+      "relevance": 8,
+      "reason": "Germany's Bundesrat has cleared the national CRA implementing law, so manufacturers of connected products must prepare cybersecurity and vulnerability-reporting obligations and related costs.",
+      "publisher": "Caschys Blog",
+      "story": "Germany passes CRA implementation law",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-2771520c59",
+      "source": "google_news",
+      "title": "The Cyber Resilience Act explained: requirements and timeline",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPNXYwZlBNUUpwWlRJRmtaeWl4YTBrVDNCcThieWJJUWFHNkdLamIxOS1DMWdONWplTkt4YkdsT3dtNzEzRlhqZE9nSkFKYVJIQ2ktVUNwX0hpUEo2dDR1MWZ3RHFfSnAyS0FXa0E3MU5vUFNsV0Uxd3lrbWVsTUc3STNqOGlZZmtDcnoyR0E4VWN0enBweTZYQ1NWQU13LXNEOVBjelh2Q0t2N0FxNWszZUhjVEk2cnNIeU9fNF9ZdVZ6ckM5b3A0a2VhbGEtMWVj",
+      "date": "2026-11-19",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "threat",
+      "relevance": 8,
+      "reason": "PwC explains Cyber Resilience Act requirements and timeline; manufacturers of products with digital elements must plan conformity, vulnerability handling and reporting before the 2026-2027 deadlines.",
+      "publisher": "PwC Nederland",
+      "story": "PwC explainer Cyber Resilience Act timeline",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-a933f0d6fc",
+      "source": "google_news",
+      "title": "First European standard published to support the Cyber Resilience Act",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPMjFPYTA3OVlrUm9pRks3RWFHRjlIdVhTeFJLYVdLSUZBQkxiZDZQbmFqR1JQNkE3bzBITFEyNkFUQjZ2U0F3UFdxRk9nZDhQNDlmQnFJZFR2Nmlpc1BzT08waFFHV1lRYm1sVzZGRVN2UHNuS3FXUG8xN1JaeGplN3VxcHlYM2QxdGZ3czhDUXVGdzZGVmNvNVBXVENIdGRVd3FF",
+      "date": "2026-11-19",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "watch",
+      "relevance": 8,
+      "reason": "First European harmonised standard for the Cyber Resilience Act gives manufacturers a route to presumed conformity for connected products ahead of CRA deadlines.",
+      "publisher": "Zprávy Kurzy.cz",
+      "story": "First European CRA standard published",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-d1cf232080",
+      "source": "google_news",
+      "title": "Why Atlas Copco's cobot on a Mexican transmission line paid back in 10.5 months",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUFFQSEphdThKclpOMEc4SDM0aUplejE4V2RxZFI3Z3UxRE41WGprM05xamIwQnZEeEExQlhMOFpKX3BfeGhlZGFnLVVjQ1hNMnR3U084OTQtMTVzY2pDNk5nZGVlaklySzZrR1hxS1JGbzJsNWZJOGJpNlR2MjltUENJbmhiaDdDR2otSF9mNG5oeDVDeklRSE1hZDd3VVBsSS10TjdReFEzVGtrZXZvOFBoZ25fY3FoenVJVWdPbnRVcnVDMjZRREdqSQ",
+      "date": "2026-11-19",
+      "snippet": "",
+      "watch_field": "robotics",
+      "news_type": "industry",
+      "signal": "opportunity",
+      "relevance": 8,
+      "reason": "Case study shows an Atlas Copco cobot on a transmission line paying back in 10.5 months, a concrete benchmark for mid-sized plants justifying cobot investment.",
+      "publisher": "MarketScale",
+      "story": "Atlas Copco cobot payback case",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-207d257e12",
+      "source": "google_news",
+      "title": "Robotik und KI im Mittelstand: 6. Projektwerkstatt 2026 in Chemnitz",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQblJYQjhyNnNfWkJPekxMbW5yRHJSVFNBVzMwS053TEVyMXNRZE5BeTdHQU4zdmxvYV9aWXEzRmFkYlBIU1BBcENXVVFrcVdaMUlad0JLNFdJVjdJcTlQejdmR0h4Q1ZiTmFseFdoMVlxUzUxUEFVWDdMa0x0c25YeURUUG1BUlVlcGlnWUNieG9zQmFJWGE1YVVNR2w2ODhYVy1SMFVkQzBiRVFscERZb2dKVEFIZDJvN0tOclpHUnVsQzF2MEdWVHV1Vl9qd9IB6gFBVV95cUxPYXRzc19lbC0yczR1ZklvSlJGRkpJU3NEMUZHdTdYQlNTellYYnB1WmROVnNhbU1JRnF0REZva0htOUhzT0Fna2FaU0xsZ191RXFJX2xEUlVQd0daMmpEcFZJQm1wZ0xkbjZ2Y05ZdHI4TVl4clBlVzFKRnBaT1BZaWhyMUVUT2FjZkNZTGVzOGZRZ0Z5eDFxbGk2azNicmtzbFhXc1lrVFhnTlBIXzg4clpNdjhTSmxUdlFRVWkwR2d3RExQZDZ1S2NDNXk1MlhjY0VMYTA4NXJZVVcwOUZ1cXVLTjl1WF90enc",
+      "date": "2026-11-20",
+      "snippet": "",
+      "watch_field": "robotics",
+      "news_type": "events",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Chemnitz project workshop on robotics and AI for the Mittelstand offers a low-cost way for manufacturers to see practical deployments and find peers.",
+      "publisher": "Sächsische Zeitung",
+      "story": "Robotik KI Projektwerkstatt Chemnitz 2026",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-5cd7bfb85f",
+      "source": "google_news",
+      "title": "Concept Robotics speeds up cobot palletizing deployment by up to 80% with the ABB Robotics Palletizing Template",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQcVQtemxUTjFrT0h6Y2hVRC1fVnVGck44ajdwU3lOSmc4V21QbGhFY0l1bmw1NV94U3hybkk0TWFweHgyOWFQRXJfN3ozbDkzWGloeU1rLWtrNDFsXzZqb0dCbzU5ZVZ0RWtud3ZGM2x3M2l6QUVJRThHcEFNVkRSQldsbUFLRHB6YmI2bkdra0x2M1ZnSnFTNFNwQWJxZjliWUtoYzhOVVFrdjB2MUotNXBXS29zMTNtOUZnZjNqS1pXYWg3SkVnakkyUk1aVW5hdnptV3hfTDdWd3ZRR2o5cm0yRWNRWk93cC1JY2g0Zw",
+      "date": "2026-11-20",
+      "snippet": "",
+      "watch_field": "robotics",
+      "news_type": "competitor",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "ABB palletizing template with Concept Robotics cuts cobot palletizing deployment time by up to 80%, a practical route for mid-sized plants facing labour shortage.",
+      "publisher": "ABB",
+      "story": "ABB palletizing template Concept Robotics",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-af4fc36e1e",
+      "source": "google_news",
+      "title": "Factory AI that tunes machines works best with limits on what it can change",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQOXNyZ25BajB4ajBZSXZ3S1dkOWlmQVNsZzF4R2RHcUo4Uk84RHRiMkZDOFpkS0VmV1pYTVpBbU1OOGw1NUMzMGw3a1hvQnp4cnpvOGtFWmtoejlvbTdmWjhZT3BMMmx0MnkwbDdmN2g2dHBfVjFDNURHN2t3RjRtTC1qTi1ESklRWFVtcHVPWE1takEyMjQxOThRRHdlZnNSWmZ1ZmJ1S29XcHlEN1ZkNmJZa0tMZkFaQXE2Z1RxTnR6WWhmdC1kdQ",
+      "date": "2026-11-20",
+      "snippet": "",
+      "watch_field": "iiot-edge",
+      "news_type": "research",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Bounded AI tuning of machines works best with limits; mid-sized plants can start with constrained, low-risk optimization rather than open-ended autonomy.",
+      "publisher": "MarketScale",
+      "story": "Constrained AI machine tuning",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-05ee3b7e12",
+      "source": "google_news",
+      "title": "CBAM: the rules for deducting the carbon price paid in third countries",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNUXRfNUNEZ2FGeDhmZzZ2dGZ2M2NiNnFHbTg3eHp0ZzlLU1RCNHRBR1pLb3N4cFViS0cwb3o5blMwc0NzTDdBV2pReHZYWnNzZUtBako4aUhIem5qUGY5aEo0M0p6WVJ5ZHNlaWFEQWM4UEI2UEpoelZBbVltWTNNVEFOMndBQ2FhUWFLQTVibWlYcXhzUWJjOU43aU04NFFNRk1DQjJpckVJZ1dWSXhYZUZiajU5aW1HX3lF",
+      "date": "2026-11-19",
+      "snippet": "",
+      "watch_field": "regulation",
+      "news_type": "regulation",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "CBAM rules for deducting carbon prices paid in third countries can reduce CBAM costs for importers of covered goods, but require documented evidence to claim.",
+      "publisher": "FASI.eu",
+      "story": "EU CBAM third-country carbon deduction rules",
+      "also_reported_by": []
+    },
+    {
+      "id": "gn-41d9caa665",
+      "source": "google_news",
+      "title": "Siemens combines Industrial AI and additive manufacturing for adaptive product development and production",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPS0Z4a3lDRFRmMnU1dnI0TkUtWTNGdXRETWxDTVIyb1RmdjZjVnAtRUJjWVk1bVQySmlmc3htZHppaDNKb050ZE5rX2pvTkNqTnc3NnFEWURQZExCeURYY0dwOTFmZG9vQ24tdFVMQ1RkVHlOMHdkWWxNQjVnRkFXdVJkOWE0aDh2NzRORTFUaGFQOEN4djZwSFJsRFJLc0NaTzVrV1NR",
+      "date": "2026-11-17",
+      "snippet": "",
+      "watch_field": "ai-production",
+      "news_type": "competitor",
+      "signal": "opportunity",
+      "relevance": 7,
+      "reason": "Siemens links Industrial AI with additive manufacturing for adaptive design and production, showing AI-driven workflows mid-sized firms could adopt via Siemens tooling.",
+      "publisher": "IoT Now",
+      "story": "Siemens Industrial AI additive manufacturing",
+      "also_reported_by": [
+        "ARC Advisory Group"
+      ]
+    }
+  ]
+}
